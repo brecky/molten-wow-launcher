@@ -60,6 +60,27 @@ Namespace My.Resources
             End Set
         End Property
         
+        Friend ReadOnly Property _Select() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Select", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property add_content() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("add_content", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property arenapointsicon() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("arenapointsicon", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property bg() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("bg", resourceCulture)
@@ -88,9 +109,65 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property gtk_clear() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("gtk-clear", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property hunterbeastmastery() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("hunterbeastmastery", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property icon_alliance() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("icon_alliance", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property icon_horde() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("icon_horde", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property icon_neutral() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("icon_neutral", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property nav_main_top1() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("nav_main_top1", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property options() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("options", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property options1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("options1", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property remove() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("remove", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

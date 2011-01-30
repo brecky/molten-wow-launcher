@@ -187,6 +187,39 @@
   <ItemGroup>
     <None Include="Resources\bg.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arenapointsicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_alliance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_horde.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_neutral.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_content.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hunterbeastmastery.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gtk-clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Select.Png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\options.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\options1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
