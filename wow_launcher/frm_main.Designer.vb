@@ -40,8 +40,9 @@ Partial Class frm_main
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_main))
-        Dim ListViewItem1 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"algo", "otra cosa", "donde esya", "estado"}, -1)
-        Dim ListViewItem2 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"dadd", "asdd", "aaaa", "sddd", "dasda"}, -1)
+        Dim ListViewItem4 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Molten-Wow", "United States", "logon.molten-wow.com", "Selected"}, -1)
+        Dim ListViewItem5 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Retail Wow [EU]", "United States", "us.logon.worldofwarcraft.com", "No Selected"}, -1)
+        Dim ListViewItem6 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Retail Wow [US]", "Europe", "eu.logon.worldofwarcraft.com", "No Selected"}, -1)
         Me.notifymenu = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ShowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -185,14 +186,13 @@ Partial Class frm_main
         Me.list_servers.FullRowSelect = True
         Me.list_servers.GridLines = True
         Me.list_servers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
-        Me.list_servers.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1, ListViewItem2})
+        Me.list_servers.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem4, ListViewItem5, ListViewItem6})
         Me.list_servers.LabelWrap = False
         Me.list_servers.Location = New System.Drawing.Point(77, 131)
         Me.list_servers.MultiSelect = False
         Me.list_servers.Name = "list_servers"
         Me.list_servers.ShowItemToolTips = True
         Me.list_servers.Size = New System.Drawing.Size(605, 142)
-        Me.list_servers.Sorting = System.Windows.Forms.SortOrder.Ascending
         Me.list_servers.TabIndex = 6
         Me.list_servers.UseCompatibleStateImageBehavior = False
         Me.list_servers.View = System.Windows.Forms.View.Details
@@ -547,11 +547,16 @@ Partial Class frm_main
                 listaindice = list_servers.Items(i).Index
             Next
         End If
-
+        Label1.Text = listaindice
+        Label2.Text = list_servers.Items.Count
     End Sub
 
-    Private Sub frm_main_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub form_main_Closing(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
+        save_data()
+    End Sub 'Form_Closing
 
+    Private Sub frm_main_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        read_data()
     End Sub
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
@@ -562,7 +567,20 @@ Partial Class frm_main
     Friend WithEvents Button7 As System.Windows.Forms.Button
 
     Private Sub btn_server_remove_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_server_remove.Click
-        list_servers.Items.Item(listaindice).Remove()
+
+        Dim nombre As String
+        nombre = My.Application.Info.ProductName
+        Dim i As Integer, lista_contador As String
+        lista_contador = list_servers.Items.Count - 1
+        For i = 0 To lista_contador
+            DeleteSetting(nombre, "realm", lista_contador)
+            DeleteSetting(nombre, "server", lista_contador)
+            DeleteSetting(nombre, "region", lista_contador)
+            DeleteSetting(nombre, "status", lista_contador)
+            SaveSetting(nombre, "realms", "total", list_servers.Items.Count)
+            list_servers.Items.Item(listaindice).Remove()
+        Next i
+        'DeleteSetting(nombre,
     End Sub
 
     Private Sub btn_server_add_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_server_add.Click
@@ -572,4 +590,52 @@ Partial Class frm_main
         HideToolStripMenuItem.Visible = False
         ToolStripSeparator1.Visible = False
     End Sub
+    Public Function read_data()
+        Dim lista_contador As String, nombre As String
+        nombre = My.Application.Info.ProductName
+        lista_contador = GetSetting(nombre, "realms", "total", "0")
+        If lista_contador <> 0 Then
+            list_servers.Items.Clear()
+            Dim i As Integer, realm As String, server As String, region As String, status As String
+            For i = 0 To lista_contador - 1
+                realm = GetSetting(nombre, "realm", i, "")
+                server = GetSetting(nombre, "server", i, "")
+                region = GetSetting(nombre, "region", i, "")
+                status = GetSetting(nombre, "status", i, "")
+                'For x = 0 To 3
+                Dim contador As Integer
+                contador = list_servers.Items.Count - 1
+                list_servers.Items.Add(server)
+                list_servers.Items(i).SubItems.Add(region)
+                list_servers.Items(i).SubItems.Add(realm)
+                list_servers.Items(i).SubItems.Add(status)
+                'Next x
+            Next i
+        ElseIf lista_contador = 0 Then
+            save_data()
+            'TextBox1.Text = realm & " - " & server & " - " & region & " - " & status
+        End If
+        Return 0
+    End Function
+
+    Public Function save_data()
+        Dim lista_contador As String, nombre As String
+        nombre = My.Application.Info.ProductName
+        lista_contador = list_servers.Items.Count - 1
+        SaveSetting(nombre, "realms", "total", list_servers.Items.Count)
+        If lista_contador <> 0 Then
+            Dim i As Integer, x As Integer
+            For i = 0 To lista_contador
+                'x = list_servers.Items(i).SubItems.Count - 1
+                SaveSetting(nombre, "server", i, list_servers.Items(i).Text)
+                For x = 0 To list_servers.Items(i).SubItems.Count - 1
+                    SaveSetting(nombre, "region", i, list_servers.Items(i).SubItems(1).Text)
+                    SaveSetting(nombre, "realm", i, list_servers.Items(i).SubItems(2).Text)
+                    SaveSetting(nombre, "status", i, list_servers.Items(i).SubItems(3).Text)
+                Next x
+            Next i
+        End If
+        Return 0
+    End Function
+
 End Class
