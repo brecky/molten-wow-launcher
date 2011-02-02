@@ -40,9 +40,9 @@ Partial Class frm_main
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_main))
-        Dim ListViewItem4 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Molten-Wow", "United States", "logon.molten-wow.com", "Selected"}, -1)
-        Dim ListViewItem5 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Retail Wow [EU]", "United States", "us.logon.worldofwarcraft.com", "No Selected"}, -1)
-        Dim ListViewItem6 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Retail Wow [US]", "Europe", "eu.logon.worldofwarcraft.com", "No Selected"}, -1)
+        Dim ListViewItem1 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Molten-Wow", "United States", "logon.molten-wow.com", "Selected"}, -1)
+        Dim ListViewItem2 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Retail Wow [US]", "United States", "us.logon.worldofwarcraft.com", "No Selected"}, -1)
+        Dim ListViewItem3 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Retail Wow [EU]", "Europe", "eu.logon.worldofwarcraft.com", "No Selected"}, -1)
         Me.notifymenu = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ShowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -61,11 +61,8 @@ Partial Class frm_main
         Me.clm_realmlist = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.clm_status = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.btn_selserver = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.btn_server_remove = New System.Windows.Forms.Button()
@@ -186,14 +183,15 @@ Partial Class frm_main
         Me.list_servers.FullRowSelect = True
         Me.list_servers.GridLines = True
         Me.list_servers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
-        Me.list_servers.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem4, ListViewItem5, ListViewItem6})
+        Me.list_servers.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1, ListViewItem2, ListViewItem3})
         Me.list_servers.LabelWrap = False
-        Me.list_servers.Location = New System.Drawing.Point(77, 131)
+        Me.list_servers.Location = New System.Drawing.Point(77, 123)
         Me.list_servers.MultiSelect = False
         Me.list_servers.Name = "list_servers"
         Me.list_servers.ShowItemToolTips = True
-        Me.list_servers.Size = New System.Drawing.Size(605, 142)
+        Me.list_servers.Size = New System.Drawing.Size(605, 150)
         Me.list_servers.TabIndex = 6
+        Me.list_servers.TabStop = False
         Me.list_servers.UseCompatibleStateImageBehavior = False
         Me.list_servers.View = System.Windows.Forms.View.Details
         '
@@ -228,68 +226,6 @@ Partial Class frm_main
         Me.Label4.TabIndex = 7
         Me.Label4.Text = "Chose the server from the list and clic connect..."
         '
-        'Button6
-        '
-        Me.Button6.AutoSize = True
-        Me.Button6.BackColor = System.Drawing.Color.Black
-        Me.Button6.BackgroundImage = CType(resources.GetObject("Button6.BackgroundImage"), System.Drawing.Image)
-        Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button6.Enabled = False
-        Me.Button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red
-        Me.Button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow
-        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.ForeColor = System.Drawing.Color.White
-        Me.Button6.Image = Global.wow_launcher.My.Resources.Resources.remove
-        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.Button6.Location = New System.Drawing.Point(169, 311)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(107, 27)
-        Me.Button6.TabIndex = 16
-        Me.Button6.Text = "Remove server"
-        Me.Button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.Button6.UseVisualStyleBackColor = False
-        '
-        'Button7
-        '
-        Me.Button7.AutoSize = True
-        Me.Button7.BackColor = System.Drawing.Color.Black
-        Me.Button7.BackgroundImage = CType(resources.GetObject("Button7.BackgroundImage"), System.Drawing.Image)
-        Me.Button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red
-        Me.Button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow
-        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button7.ForeColor = System.Drawing.Color.White
-        Me.Button7.Image = Global.wow_launcher.My.Resources.Resources.options1
-        Me.Button7.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.Button7.Location = New System.Drawing.Point(77, 311)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(86, 27)
-        Me.Button7.TabIndex = 15
-        Me.Button7.Text = "Add server"
-        Me.Button7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.Button7.UseVisualStyleBackColor = False
-        '
-        'Button4
-        '
-        Me.Button4.AutoSize = True
-        Me.Button4.BackColor = System.Drawing.Color.Black
-        Me.Button4.BackgroundImage = CType(resources.GetObject("Button4.BackgroundImage"), System.Drawing.Image)
-        Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button4.Enabled = False
-        Me.Button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red
-        Me.Button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.ForeColor = System.Drawing.Color.White
-        Me.Button4.Image = Global.wow_launcher.My.Resources.Resources.remove
-        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.Button4.Location = New System.Drawing.Point(169, 344)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(107, 27)
-        Me.Button4.TabIndex = 14
-        Me.Button4.Text = "Remove server"
-        Me.Button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.Button4.UseVisualStyleBackColor = False
-        '
         'Button5
         '
         Me.Button5.AutoSize = True
@@ -302,33 +238,36 @@ Partial Class frm_main
         Me.Button5.ForeColor = System.Drawing.Color.White
         Me.Button5.Image = Global.wow_launcher.My.Resources.Resources.options1
         Me.Button5.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.Button5.Location = New System.Drawing.Point(77, 344)
+        Me.Button5.Location = New System.Drawing.Point(78, 346)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(86, 27)
+        Me.Button5.Size = New System.Drawing.Size(85, 27)
         Me.Button5.TabIndex = 13
-        Me.Button5.Text = "Add server"
+        Me.Button5.TabStop = False
+        Me.Button5.Text = "Options"
         Me.Button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.Button5.UseVisualStyleBackColor = False
         '
-        'Button3
+        'btn_selserver
         '
-        Me.Button3.AutoSize = True
-        Me.Button3.BackColor = System.Drawing.Color.Black
-        Me.Button3.BackgroundImage = CType(resources.GetObject("Button3.BackgroundImage"), System.Drawing.Image)
-        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red
-        Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.ForeColor = System.Drawing.Color.White
-        Me.Button3.Image = Global.wow_launcher.My.Resources.Resources._Select
-        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.Button3.Location = New System.Drawing.Point(484, 278)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(97, 27)
-        Me.Button3.TabIndex = 12
-        Me.Button3.Text = "Select server"
-        Me.Button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.btn_selserver.AutoSize = True
+        Me.btn_selserver.BackColor = System.Drawing.Color.Black
+        Me.btn_selserver.BackgroundImage = CType(resources.GetObject("btn_selserver.BackgroundImage"), System.Drawing.Image)
+        Me.btn_selserver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btn_selserver.Enabled = False
+        Me.btn_selserver.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red
+        Me.btn_selserver.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow
+        Me.btn_selserver.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_selserver.ForeColor = System.Drawing.Color.White
+        Me.btn_selserver.Image = Global.wow_launcher.My.Resources.Resources._Select
+        Me.btn_selserver.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.btn_selserver.Location = New System.Drawing.Point(484, 278)
+        Me.btn_selserver.Name = "btn_selserver"
+        Me.btn_selserver.Size = New System.Drawing.Size(97, 27)
+        Me.btn_selserver.TabIndex = 12
+        Me.btn_selserver.TabStop = False
+        Me.btn_selserver.Text = "Select server"
+        Me.btn_selserver.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btn_selserver.UseVisualStyleBackColor = False
         '
         'Button1
         '
@@ -345,8 +284,9 @@ Partial Class frm_main
         Me.Button1.Location = New System.Drawing.Point(484, 311)
         Me.Button1.Name = "Button1"
         Me.Button1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Button1.Size = New System.Drawing.Size(195, 60)
+        Me.Button1.Size = New System.Drawing.Size(198, 60)
         Me.Button1.TabIndex = 11
+        Me.Button1.TabStop = False
         Me.Button1.Text = "Play World of Warcraft"
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
@@ -366,8 +306,9 @@ Partial Class frm_main
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopLeft
         Me.Button2.Location = New System.Drawing.Point(587, 278)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(93, 27)
+        Me.Button2.Size = New System.Drawing.Size(95, 27)
         Me.Button2.TabIndex = 10
+        Me.Button2.TabStop = False
         Me.Button2.Text = "Clear Cache"
         Me.Button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.Button2.UseVisualStyleBackColor = False
@@ -389,6 +330,7 @@ Partial Class frm_main
         Me.btn_server_remove.Name = "btn_server_remove"
         Me.btn_server_remove.Size = New System.Drawing.Size(107, 27)
         Me.btn_server_remove.TabIndex = 9
+        Me.btn_server_remove.TabStop = False
         Me.btn_server_remove.Text = "Remove server"
         Me.btn_server_remove.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btn_server_remove.UseVisualStyleBackColor = False
@@ -409,6 +351,7 @@ Partial Class frm_main
         Me.btn_server_add.Name = "btn_server_add"
         Me.btn_server_add.Size = New System.Drawing.Size(86, 27)
         Me.btn_server_add.TabIndex = 8
+        Me.btn_server_add.TabStop = False
         Me.btn_server_add.Text = "Add server"
         Me.btn_server_add.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btn_server_add.UseVisualStyleBackColor = False
@@ -444,11 +387,8 @@ Partial Class frm_main
         Me.BackColor = System.Drawing.Color.SaddleBrown
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(761, 405)
-        Me.Controls.Add(Me.Button6)
-        Me.Controls.Add(Me.Button7)
-        Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.btn_selserver)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.btn_server_remove)
@@ -463,7 +403,7 @@ Partial Class frm_main
         Me.Controls.Add(Me.ShapeContainer1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frm_main"
-        Me.Text = "Form1"
+        Me.Text = "Molten wow Game Launcher"
         Me.TransparencyKey = System.Drawing.Color.SaddleBrown
         Me.ContextMenuStrip1.ResumeLayout(False)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -498,6 +438,7 @@ Partial Class frm_main
     End Sub
 
     Private Sub PictureBox1_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PictureBox1.MouseDown
+        'move the main form 
         ReleaseCapture()
         SendMessage(Me.Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0)
     End Sub
@@ -522,9 +463,9 @@ Partial Class frm_main
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
+        'ping settings
         res = eco.Send("logon.molten-wow.com")
         Label3.Text = "Latency: " & res.RoundtripTime & "ms"
-
     End Sub
     Friend WithEvents list_servers As System.Windows.Forms.ListView
     Friend WithEvents clm_server As System.Windows.Forms.ColumnHeader
@@ -536,19 +477,22 @@ Partial Class frm_main
     Friend WithEvents btn_server_remove As System.Windows.Forms.Button
 
     Private Sub list_servers_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles list_servers.SelectedIndexChanged
+        'check if some item is selected in list view, if is not select server and delete server buttoms are dissabled
         If list_servers.SelectedItems.Count = 0 Then
             btn_server_remove.Enabled = False
+            btn_selserver.Enabled = False
         Else
             btn_server_remove.Enabled = True
+            btn_selserver.Enabled = True
         End If
+
+        'if some item in listview is selected, get the item index
         If list_servers.Items.Count > 0 Then
             Dim i As Integer
             For Each i In list_servers.SelectedIndices
                 listaindice = list_servers.Items(i).Index
             Next
         End If
-        Label1.Text = listaindice
-        Label2.Text = list_servers.Items.Count
     End Sub
 
     Private Sub form_main_Closing(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
@@ -560,27 +504,24 @@ Partial Class frm_main
     End Sub
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents Button3 As System.Windows.Forms.Button
-    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents btn_selserver As System.Windows.Forms.Button
     Friend WithEvents Button5 As System.Windows.Forms.Button
-    Friend WithEvents Button6 As System.Windows.Forms.Button
-    Friend WithEvents Button7 As System.Windows.Forms.Button
 
     Private Sub btn_server_remove_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_server_remove.Click
-
-        Dim nombre As String
+        Dim nombre As String, i As Integer, lista_contador As Integer, total As Integer
         nombre = My.Application.Info.ProductName
-        Dim i As Integer, lista_contador As String
-        lista_contador = list_servers.Items.Count - 1
-        For i = 0 To lista_contador
-            DeleteSetting(nombre, "realm", lista_contador)
-            DeleteSetting(nombre, "server", lista_contador)
-            DeleteSetting(nombre, "region", lista_contador)
-            DeleteSetting(nombre, "status", lista_contador)
-            SaveSetting(nombre, "realms", "total", list_servers.Items.Count)
+        lista_contador = GetSetting(nombre, "realms", "total", 0)
+        total = lista_contador - 1
+        If total <> 0 Then
+            For i = 0 To total
+                DeleteSetting(nombre, "realm", i)
+                DeleteSetting(nombre, "server", i)
+                DeleteSetting(nombre, "region", i)
+                DeleteSetting(nombre, "status", i)
+            Next i
             list_servers.Items.Item(listaindice).Remove()
-        Next i
-        'DeleteSetting(nombre,
+            SaveSetting(nombre, "realms", "total", 0) 'save settings to prevent an infinite loop
+        End If
     End Sub
 
     Private Sub btn_server_add_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_server_add.Click
@@ -591,6 +532,7 @@ Partial Class frm_main
         ToolStripSeparator1.Visible = False
     End Sub
     Public Function read_data()
+        'read the servers list data, if is empty save by default molten, and retail servers
         Dim lista_contador As String, nombre As String
         nombre = My.Application.Info.ProductName
         lista_contador = GetSetting(nombre, "realms", "total", "0")
@@ -602,23 +544,21 @@ Partial Class frm_main
                 server = GetSetting(nombre, "server", i, "")
                 region = GetSetting(nombre, "region", i, "")
                 status = GetSetting(nombre, "status", i, "")
-                'For x = 0 To 3
                 Dim contador As Integer
                 contador = list_servers.Items.Count - 1
                 list_servers.Items.Add(server)
                 list_servers.Items(i).SubItems.Add(region)
                 list_servers.Items(i).SubItems.Add(realm)
                 list_servers.Items(i).SubItems.Add(status)
-                'Next x
             Next i
         ElseIf lista_contador = 0 Then
             save_data()
-            'TextBox1.Text = realm & " - " & server & " - " & region & " - " & status
         End If
         Return 0
     End Function
 
     Public Function save_data()
+        'this function saves the data from listview into windows reg
         Dim lista_contador As String, nombre As String
         nombre = My.Application.Info.ProductName
         lista_contador = list_servers.Items.Count - 1
@@ -626,7 +566,6 @@ Partial Class frm_main
         If lista_contador <> 0 Then
             Dim i As Integer, x As Integer
             For i = 0 To lista_contador
-                'x = list_servers.Items(i).SubItems.Count - 1
                 SaveSetting(nombre, "server", i, list_servers.Items(i).Text)
                 For x = 0 To list_servers.Items(i).SubItems.Count - 1
                     SaveSetting(nombre, "region", i, list_servers.Items(i).SubItems(1).Text)
@@ -637,5 +576,4 @@ Partial Class frm_main
         End If
         Return 0
     End Function
-
 End Class
