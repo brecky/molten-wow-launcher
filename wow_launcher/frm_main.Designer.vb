@@ -10,6 +10,7 @@ Partial Class frm_main
     Dim eco As New System.Net.NetworkInformation.Ping
     Dim res As System.Net.NetworkInformation.PingReply
     Dim ip As IPAddress
+    Dim selser As String
 
     Dim listaindice As Integer
 
@@ -40,9 +41,9 @@ Partial Class frm_main
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_main))
-        Dim ListViewItem1 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Molten-Wow", "United States", "logon.molten-wow.com", "Selected"}, -1)
-        Dim ListViewItem2 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Retail Wow [US]", "United States", "us.logon.worldofwarcraft.com", "No Selected"}, -1)
-        Dim ListViewItem3 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Retail Wow [EU]", "Europe", "eu.logon.worldofwarcraft.com", "No Selected"}, -1)
+        Dim ListViewItem4 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Molten-Wow", "United States", "logon.molten-wow.com", "Selected"}, -1)
+        Dim ListViewItem5 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Retail Wow [US]", "United States", "us.logon.worldofwarcraft.com", "No Selected"}, -1)
+        Dim ListViewItem6 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Retail Wow [EU]", "Europe", "eu.logon.worldofwarcraft.com", "No Selected"}, -1)
         Me.notifymenu = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ShowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -61,10 +62,10 @@ Partial Class frm_main
         Me.clm_realmlist = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.clm_status = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Button5 = New System.Windows.Forms.Button()
+        Me.btn_options = New System.Windows.Forms.Button()
         Me.btn_selserver = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btn_playwow = New System.Windows.Forms.Button()
+        Me.btn_clearcache = New System.Windows.Forms.Button()
         Me.btn_server_remove = New System.Windows.Forms.Button()
         Me.btn_server_add = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
@@ -183,7 +184,7 @@ Partial Class frm_main
         Me.list_servers.FullRowSelect = True
         Me.list_servers.GridLines = True
         Me.list_servers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
-        Me.list_servers.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1, ListViewItem2, ListViewItem3})
+        Me.list_servers.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem4, ListViewItem5, ListViewItem6})
         Me.list_servers.LabelWrap = False
         Me.list_servers.Location = New System.Drawing.Point(77, 123)
         Me.list_servers.MultiSelect = False
@@ -226,26 +227,26 @@ Partial Class frm_main
         Me.Label4.TabIndex = 7
         Me.Label4.Text = "Chose the server from the list and clic connect..."
         '
-        'Button5
+        'btn_options
         '
-        Me.Button5.AutoSize = True
-        Me.Button5.BackColor = System.Drawing.Color.Black
-        Me.Button5.BackgroundImage = CType(resources.GetObject("Button5.BackgroundImage"), System.Drawing.Image)
-        Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red
-        Me.Button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.ForeColor = System.Drawing.Color.White
-        Me.Button5.Image = Global.wow_launcher.My.Resources.Resources.options1
-        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.Button5.Location = New System.Drawing.Point(78, 346)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(85, 27)
-        Me.Button5.TabIndex = 13
-        Me.Button5.TabStop = False
-        Me.Button5.Text = "Options"
-        Me.Button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.Button5.UseVisualStyleBackColor = False
+        Me.btn_options.AutoSize = True
+        Me.btn_options.BackColor = System.Drawing.Color.Black
+        Me.btn_options.BackgroundImage = CType(resources.GetObject("btn_options.BackgroundImage"), System.Drawing.Image)
+        Me.btn_options.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btn_options.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red
+        Me.btn_options.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow
+        Me.btn_options.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_options.ForeColor = System.Drawing.Color.White
+        Me.btn_options.Image = Global.wow_launcher.My.Resources.Resources.options1
+        Me.btn_options.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.btn_options.Location = New System.Drawing.Point(78, 346)
+        Me.btn_options.Name = "btn_options"
+        Me.btn_options.Size = New System.Drawing.Size(85, 27)
+        Me.btn_options.TabIndex = 13
+        Me.btn_options.TabStop = False
+        Me.btn_options.Text = "Options"
+        Me.btn_options.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btn_options.UseVisualStyleBackColor = False
         '
         'btn_selserver
         '
@@ -269,49 +270,49 @@ Partial Class frm_main
         Me.btn_selserver.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btn_selserver.UseVisualStyleBackColor = False
         '
-        'Button1
+        'btn_playwow
         '
-        Me.Button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Button1.BackColor = System.Drawing.Color.Black
-        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red
-        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Image = Global.wow_launcher.My.Resources.Resources.icon_neutral
-        Me.Button1.Location = New System.Drawing.Point(484, 311)
-        Me.Button1.Name = "Button1"
-        Me.Button1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Button1.Size = New System.Drawing.Size(198, 60)
-        Me.Button1.TabIndex = 11
-        Me.Button1.TabStop = False
-        Me.Button1.Text = "Play World of Warcraft"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.btn_playwow.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btn_playwow.BackColor = System.Drawing.Color.Black
+        Me.btn_playwow.BackgroundImage = CType(resources.GetObject("btn_playwow.BackgroundImage"), System.Drawing.Image)
+        Me.btn_playwow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btn_playwow.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red
+        Me.btn_playwow.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow
+        Me.btn_playwow.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_playwow.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_playwow.ForeColor = System.Drawing.Color.White
+        Me.btn_playwow.Image = Global.wow_launcher.My.Resources.Resources.icon_neutral
+        Me.btn_playwow.Location = New System.Drawing.Point(484, 311)
+        Me.btn_playwow.Name = "btn_playwow"
+        Me.btn_playwow.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.btn_playwow.Size = New System.Drawing.Size(198, 60)
+        Me.btn_playwow.TabIndex = 11
+        Me.btn_playwow.TabStop = False
+        Me.btn_playwow.Text = "Play World of Warcraft"
+        Me.btn_playwow.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btn_playwow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.btn_playwow.UseVisualStyleBackColor = False
         '
-        'Button2
+        'btn_clearcache
         '
-        Me.Button2.AutoSize = True
-        Me.Button2.BackColor = System.Drawing.Color.Black
-        Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
-        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red
-        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.ForeColor = System.Drawing.Color.White
-        Me.Button2.Image = Global.wow_launcher.My.Resources.Resources.gtk_clear
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.Button2.Location = New System.Drawing.Point(587, 278)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(95, 27)
-        Me.Button2.TabIndex = 10
-        Me.Button2.TabStop = False
-        Me.Button2.Text = "Clear Cache"
-        Me.Button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.btn_clearcache.AutoSize = True
+        Me.btn_clearcache.BackColor = System.Drawing.Color.Black
+        Me.btn_clearcache.BackgroundImage = CType(resources.GetObject("btn_clearcache.BackgroundImage"), System.Drawing.Image)
+        Me.btn_clearcache.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btn_clearcache.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red
+        Me.btn_clearcache.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow
+        Me.btn_clearcache.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_clearcache.ForeColor = System.Drawing.Color.White
+        Me.btn_clearcache.Image = Global.wow_launcher.My.Resources.Resources.gtk_clear
+        Me.btn_clearcache.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.btn_clearcache.Location = New System.Drawing.Point(587, 278)
+        Me.btn_clearcache.Name = "btn_clearcache"
+        Me.btn_clearcache.Size = New System.Drawing.Size(95, 27)
+        Me.btn_clearcache.TabIndex = 10
+        Me.btn_clearcache.TabStop = False
+        Me.btn_clearcache.Text = "Clear Cache"
+        Me.btn_clearcache.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btn_clearcache.UseVisualStyleBackColor = False
         '
         'btn_server_remove
         '
@@ -387,10 +388,10 @@ Partial Class frm_main
         Me.BackColor = System.Drawing.Color.SaddleBrown
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(761, 405)
-        Me.Controls.Add(Me.Button5)
+        Me.Controls.Add(Me.btn_options)
         Me.Controls.Add(Me.btn_selserver)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.btn_playwow)
+        Me.Controls.Add(Me.btn_clearcache)
         Me.Controls.Add(Me.btn_server_remove)
         Me.Controls.Add(Me.btn_server_add)
         Me.Controls.Add(Me.Label4)
@@ -464,8 +465,12 @@ Partial Class frm_main
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         'ping settings
-        res = eco.Send("logon.molten-wow.com")
+        res = eco.Send(selser)
         Label3.Text = "Latency: " & res.RoundtripTime & "ms"
+        If res.RoundtripTime = 0 Then
+            Timer1.Enabled = False
+            Label3.Text = "Latency: No Response"
+        End If
     End Sub
     Friend WithEvents list_servers As System.Windows.Forms.ListView
     Friend WithEvents clm_server As System.Windows.Forms.ColumnHeader
@@ -501,11 +506,12 @@ Partial Class frm_main
 
     Private Sub frm_main_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         read_data()
+        selser = GetSetting(My.Application.Info.ProductName, "realms", "selectedrealm", "logon.molten-wow.com")
     End Sub
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents btn_playwow As System.Windows.Forms.Button
+    Friend WithEvents btn_clearcache As System.Windows.Forms.Button
     Friend WithEvents btn_selserver As System.Windows.Forms.Button
-    Friend WithEvents Button5 As System.Windows.Forms.Button
+    Friend WithEvents btn_options As System.Windows.Forms.Button
 
     Private Sub btn_server_remove_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_server_remove.Click
         Dim nombre As String, i As Integer, lista_contador As Integer, total As Integer
@@ -576,4 +582,21 @@ Partial Class frm_main
         End If
         Return 0
     End Function
+
+    Private Sub btn_selserver_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_selserver.Click
+        Dim i As Integer, lista_contador As Integer, nombre As String
+        nombre = My.Application.Info.ProductName
+        lista_contador = list_servers.Items.Count
+        For i = 0 To lista_contador - 1
+            Dim contador As Integer
+            contador = list_servers.Items.Count - 1
+            list_servers.Items(i).SubItems(3).Text = "No Selected"
+        Next i
+        list_servers.Items(listaindice).SubItems(3).Text = "Selected"
+        SaveSetting(nombre, "realms", "selectedrealm", list_servers.Items(listaindice).SubItems(2).Text)
+        selser = list_servers.Items(listaindice).SubItems(2).Text
+        If Timer1.Enabled = False Then
+            Timer1.Enabled = True
+        End If
+    End Sub
 End Class
