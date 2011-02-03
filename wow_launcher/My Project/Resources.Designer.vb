@@ -144,6 +144,13 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property molt_btn_bgrond() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("molt_btn_bgrond", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property nav_main_top1() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("nav_main_top1", resourceCulture)
@@ -168,6 +175,13 @@ Namespace My.Resources
         Friend ReadOnly Property remove() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("remove", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property search() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("search", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

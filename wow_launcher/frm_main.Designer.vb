@@ -12,7 +12,7 @@ Partial Class frm_main
     Dim ip As IPAddress
     Dim selser As String
 
-    Dim listaindice As Integer
+    Dim listaindice As Integer, gamedir As String, gamelang As String
 
     Public Const WM_NCLBUTTONDOWN As Integer = &HA1
     Public Const HTCAPTION As Integer = &H2
@@ -41,9 +41,9 @@ Partial Class frm_main
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_main))
-        Dim ListViewItem4 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Molten-Wow", "United States", "logon.molten-wow.com", "Selected"}, -1)
-        Dim ListViewItem5 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Retail Wow [US]", "United States", "us.logon.worldofwarcraft.com", "No Selected"}, -1)
-        Dim ListViewItem6 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Retail Wow [EU]", "Europe", "eu.logon.worldofwarcraft.com", "No Selected"}, -1)
+        Dim ListViewItem1 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Molten-Wow", "United States", "logon.molten-wow.com", "Selected"}, -1)
+        Dim ListViewItem2 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Retail Wow [US]", "United States", "us.logon.worldofwarcraft.com", "No Selected"}, -1)
+        Dim ListViewItem3 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Retail Wow [EU]", "Europe", "eu.logon.worldofwarcraft.com", "No Selected"}, -1)
         Me.notifymenu = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ShowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -51,9 +51,8 @@ Partial Class frm_main
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
-        Me.RectangleShape1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lbl_wowdir = New System.Windows.Forms.Label()
+        Me.lbl_lang = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.list_servers = New System.Windows.Forms.ListView()
@@ -70,6 +69,7 @@ Partial Class frm_main
         Me.btn_server_add = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.RectangleShape1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -122,38 +122,27 @@ Partial Class frm_main
         Me.ShapeContainer1.TabIndex = 1
         Me.ShapeContainer1.TabStop = False
         '
-        'RectangleShape1
+        'lbl_wowdir
         '
-        Me.RectangleShape1.BackColor = System.Drawing.Color.Black
-        Me.RectangleShape1.BackgroundImage = Global.wow_launcher.My.Resources.Resources.bg
-        Me.RectangleShape1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.RectangleShape1.BorderColor = System.Drawing.Color.Black
-        Me.RectangleShape1.CornerRadius = 15
-        Me.RectangleShape1.Location = New System.Drawing.Point(64, 95)
-        Me.RectangleShape1.Name = "RectangleShape1"
-        Me.RectangleShape1.Size = New System.Drawing.Size(629, 303)
+        Me.lbl_wowdir.BackColor = System.Drawing.Color.Black
+        Me.lbl_wowdir.ForeColor = System.Drawing.Color.White
+        Me.lbl_wowdir.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.lbl_wowdir.Location = New System.Drawing.Point(74, 381)
+        Me.lbl_wowdir.Name = "lbl_wowdir"
+        Me.lbl_wowdir.Size = New System.Drawing.Size(283, 16)
+        Me.lbl_wowdir.TabIndex = 3
+        Me.lbl_wowdir.Text = "Game Dir: (No dir selected)"
         '
-        'Label1
+        'lbl_lang
         '
-        Me.Label1.BackColor = System.Drawing.Color.Black
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.Label1.Location = New System.Drawing.Point(74, 381)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(283, 16)
-        Me.Label1.TabIndex = 3
-        Me.Label1.Text = "Game Dir: (No dir selected)"
-        '
-        'Label2
-        '
-        Me.Label2.BackColor = System.Drawing.Color.Black
-        Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.Label2.Location = New System.Drawing.Point(357, 381)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(201, 16)
-        Me.Label2.TabIndex = 4
-        Me.Label2.Text = "Language: (English-Great Britain)"
+        Me.lbl_lang.BackColor = System.Drawing.Color.Black
+        Me.lbl_lang.ForeColor = System.Drawing.Color.White
+        Me.lbl_lang.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.lbl_lang.Location = New System.Drawing.Point(357, 381)
+        Me.lbl_lang.Name = "lbl_lang"
+        Me.lbl_lang.Size = New System.Drawing.Size(201, 16)
+        Me.lbl_lang.TabIndex = 4
+        Me.lbl_lang.Text = "Language: (English-Great Britain)"
         '
         'Label3
         '
@@ -184,7 +173,7 @@ Partial Class frm_main
         Me.list_servers.FullRowSelect = True
         Me.list_servers.GridLines = True
         Me.list_servers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
-        Me.list_servers.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem4, ListViewItem5, ListViewItem6})
+        Me.list_servers.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1, ListViewItem2, ListViewItem3})
         Me.list_servers.LabelWrap = False
         Me.list_servers.Location = New System.Drawing.Point(77, 123)
         Me.list_servers.MultiSelect = False
@@ -381,6 +370,17 @@ Partial Class frm_main
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
+        'RectangleShape1
+        '
+        Me.RectangleShape1.BackColor = System.Drawing.Color.Black
+        Me.RectangleShape1.BackgroundImage = Global.wow_launcher.My.Resources.Resources.bg
+        Me.RectangleShape1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.RectangleShape1.BorderColor = System.Drawing.Color.Black
+        Me.RectangleShape1.CornerRadius = 15
+        Me.RectangleShape1.Location = New System.Drawing.Point(64, 95)
+        Me.RectangleShape1.Name = "RectangleShape1"
+        Me.RectangleShape1.Size = New System.Drawing.Size(629, 303)
+        '
         'frm_main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -397,13 +397,14 @@ Partial Class frm_main
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.list_servers)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lbl_lang)
+        Me.Controls.Add(Me.lbl_wowdir)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.ShapeContainer1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frm_main"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Molten wow Game Launcher"
         Me.TransparencyKey = System.Drawing.Color.SaddleBrown
         Me.ContextMenuStrip1.ResumeLayout(False)
@@ -458,8 +459,8 @@ Partial Class frm_main
     Private Sub PictureBox2_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox2.MouseLeave
         PictureBox2.Image = wow_launcher.My.Resources.Resources.close_02
     End Sub
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents lbl_wowdir As System.Windows.Forms.Label
+    Friend WithEvents lbl_lang As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
 
@@ -506,7 +507,8 @@ Partial Class frm_main
 
     Private Sub frm_main_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         read_data()
-        selser = GetSetting(My.Application.Info.ProductName, "realms", "selectedrealm", "logon.molten-wow.com")
+        read_config()
+
     End Sub
     Friend WithEvents btn_playwow As System.Windows.Forms.Button
     Friend WithEvents btn_clearcache As System.Windows.Forms.Button
@@ -598,5 +600,22 @@ Partial Class frm_main
         If Timer1.Enabled = False Then
             Timer1.Enabled = True
         End If
+    End Sub
+
+    Public Function read_config()
+        selser = GetSetting(My.Application.Info.ProductName, "realms", "selectedrealm", "logon.molten-wow.com")
+        gamedir = GetSetting(My.Application.Info.ProductName, "realms", "gamedir", "(No dir selected)")
+        gamelang = GetSetting(My.Application.Info.ProductName, "realms", "gamelang", "(English-Great Britain)")
+        lbl_wowdir.Text = "Game Dir: " & gamedir
+        lbl_lang.Text = "Language: " & gamelang
+        Return 0
+    End Function
+
+    Private Sub btn_options_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_options.Click
+        Me.Hide()
+        frm_options.Show()
+        ShowToolStripMenuItem.Visible = False
+        HideToolStripMenuItem.Visible = False
+        ToolStripSeparator1.Visible = False
     End Sub
 End Class

@@ -11,3 +11,4 @@ E:\moltenlauncher\wow_launcher\wow_launcher\obj\x86\Debug\wow_launcher.exe
 E:\moltenlauncher\wow_launcher\wow_launcher\obj\x86\Debug\wow_launcher.xml
 E:\moltenlauncher\wow_launcher\wow_launcher\obj\x86\Debug\wow_launcher.pdb
 E:\moltenlauncher\wow_launcher\wow_launcher\obj\x86\Debug\wow_launcher.frm_addserver.resources
+E:\moltenlauncher\wow_launcher\wow_launcher\obj\x86\Debug\wow_launcher.frm_options.resources

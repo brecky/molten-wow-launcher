@@ -1,6 +1,6 @@
 ﻿Public Class frm_addserver
 
-    Private Sub form_addserver_Closing(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
+    Private Sub frm_addserver_Closing(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
         frm_main.ShowToolStripMenuItem.Visible = False
         frm_main.HideToolStripMenuItem.Visible = True
         frm_main.ToolStripSeparator1.Visible = True
@@ -42,5 +42,9 @@
         'SaveSetting(nombre, "status", lista_contador, "No Selected")
         'frm_main.read_data()
             Me.Close()
+    End Sub
+
+    Private Sub frm_addserver_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
     End Sub
 End Class
