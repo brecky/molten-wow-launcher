@@ -102,6 +102,13 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property deathknightunholy() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("deathknightunholy", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property favicon() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("favicon", resourceCulture)
@@ -137,6 +144,13 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property list_vb_bgr() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("list_vb_bgr", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property molt_btn_bgrond() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("molt_btn_bgrond", resourceCulture)
@@ -168,6 +182,13 @@ Namespace My.Resources
         Friend ReadOnly Property remove() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("remove", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property rogueassassination() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("rogueassassination", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

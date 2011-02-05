@@ -34,6 +34,7 @@ Partial Class frm_options
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cbx_gamelang = New System.Windows.Forms.ComboBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -156,9 +157,9 @@ Partial Class frm_options
         Me.Label2.ForeColor = System.Drawing.Color.White
         Me.Label2.Location = New System.Drawing.Point(7, 50)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(89, 13)
+        Me.Label2.Size = New System.Drawing.Size(118, 13)
         Me.Label2.TabIndex = 18
-        Me.Label2.Text = "Game Language:"
+        Me.Label2.Text = "Game Client Language:"
         '
         'cbx_gamelang
         '
@@ -170,9 +171,9 @@ Partial Class frm_options
         Me.cbx_gamelang.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.cbx_gamelang.IntegralHeight = False
         Me.cbx_gamelang.Items.AddRange(New Object() {"English United States", "English Great Britain", "German", "French", "Spanish Spain", "Spanish Mexico", "Russian"})
-        Me.cbx_gamelang.Location = New System.Drawing.Point(102, 47)
+        Me.cbx_gamelang.Location = New System.Drawing.Point(144, 47)
         Me.cbx_gamelang.Name = "cbx_gamelang"
-        Me.cbx_gamelang.Size = New System.Drawing.Size(122, 21)
+        Me.cbx_gamelang.Size = New System.Drawing.Size(172, 21)
         Me.cbx_gamelang.TabIndex = 19
         Me.cbx_gamelang.TabStop = False
         '
@@ -180,12 +181,26 @@ Partial Class frm_options
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
+        'Label6
+        '
+        Me.Label6.AutoEllipsis = True
+        Me.Label6.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label6.ForeColor = System.Drawing.Color.Snow
+        Me.Label6.Location = New System.Drawing.Point(7, 77)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(310, 53)
+        Me.Label6.TabIndex = 20
+        Me.Label6.Text = "Note: Write only the url in Server Realmlist. You need exclude the ""Set Realmlist" & _
+            """. If you write ""Set Realmlist"" in Server realm the launcher can't connect to se" & _
+            "rver."
+        '
         'frm_options
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.wow_launcher.My.Resources.Resources.hunterbeastmastery
         Me.ClientSize = New System.Drawing.Size(324, 161)
+        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.cbx_gamelang)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btn_seldir)
@@ -216,4 +231,5 @@ Partial Class frm_options
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents cbx_gamelang As System.Windows.Forms.ComboBox
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents Label6 As System.Windows.Forms.Label
 End Class

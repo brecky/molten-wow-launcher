@@ -51,25 +51,28 @@ Partial Class frm_main
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
-        Me.RectangleShape1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
+        Me.LineShape2 = New Microsoft.VisualBasic.PowerPacks.LineShape()
+        Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.lbl_wowdir = New System.Windows.Forms.Label()
         Me.lbl_lang = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.list_servers = New System.Windows.Forms.ListView()
-        Me.clm_server = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.clm_location = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.clm_realmlist = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.clm_status = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.btn_options = New System.Windows.Forms.Button()
         Me.btn_selserver = New System.Windows.Forms.Button()
         Me.btn_playwow = New System.Windows.Forms.Button()
         Me.btn_clearcache = New System.Windows.Forms.Button()
         Me.btn_server_remove = New System.Windows.Forms.Button()
         Me.btn_server_add = New System.Windows.Forms.Button()
+        Me.list_servers = New System.Windows.Forms.ListView()
+        Me.clm_server = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.clm_location = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.clm_realmlist = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.clm_status = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.RectangleShape1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -117,21 +120,29 @@ Partial Class frm_main
         Me.ShapeContainer1.Location = New System.Drawing.Point(0, 0)
         Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
         Me.ShapeContainer1.Name = "ShapeContainer1"
-        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.RectangleShape1})
+        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.LineShape2, Me.LineShape1, Me.RectangleShape1})
         Me.ShapeContainer1.Size = New System.Drawing.Size(761, 405)
         Me.ShapeContainer1.TabIndex = 1
         Me.ShapeContainer1.TabStop = False
         '
-        'RectangleShape1
+        'LineShape2
         '
-        Me.RectangleShape1.BackColor = System.Drawing.Color.Black
-        Me.RectangleShape1.BackgroundImage = Global.wow_launcher.My.Resources.Resources.bg
-        Me.RectangleShape1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.RectangleShape1.BorderColor = System.Drawing.Color.Black
-        Me.RectangleShape1.CornerRadius = 15
-        Me.RectangleShape1.Location = New System.Drawing.Point(64, 95)
-        Me.RectangleShape1.Name = "RectangleShape1"
-        Me.RectangleShape1.Size = New System.Drawing.Size(629, 303)
+        Me.LineShape2.BorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.LineShape2.Name = "LineShape2"
+        Me.LineShape2.X1 = 79
+        Me.LineShape2.X2 = 682
+        Me.LineShape2.Y1 = 378
+        Me.LineShape2.Y2 = 378
+        '
+        'LineShape1
+        '
+        Me.LineShape1.BorderColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.LineShape1.BorderWidth = 2
+        Me.LineShape1.Name = "LineShape1"
+        Me.LineShape1.X1 = 78
+        Me.LineShape1.X2 = 681
+        Me.LineShape1.Y1 = 378
+        Me.LineShape1.Y2 = 378
         '
         'lbl_wowdir
         '
@@ -171,51 +182,6 @@ Partial Class frm_main
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
-        'list_servers
-        '
-        Me.list_servers.Activation = System.Windows.Forms.ItemActivation.OneClick
-        Me.list_servers.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.list_servers.BackColor = System.Drawing.Color.FromArgb(CType(CType(172, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(240, Byte), Integer))
-        Me.list_servers.BackgroundImageTiled = True
-        Me.list_servers.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.clm_server, Me.clm_location, Me.clm_realmlist, Me.clm_status})
-        Me.list_servers.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.list_servers.FullRowSelect = True
-        Me.list_servers.GridLines = True
-        Me.list_servers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
-        Me.list_servers.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1, ListViewItem2, ListViewItem3})
-        Me.list_servers.LabelWrap = False
-        Me.list_servers.Location = New System.Drawing.Point(77, 123)
-        Me.list_servers.MultiSelect = False
-        Me.list_servers.Name = "list_servers"
-        Me.list_servers.ShowItemToolTips = True
-        Me.list_servers.Size = New System.Drawing.Size(605, 150)
-        Me.list_servers.TabIndex = 6
-        Me.list_servers.TabStop = False
-        Me.list_servers.UseCompatibleStateImageBehavior = False
-        Me.list_servers.View = System.Windows.Forms.View.Details
-        '
-        'clm_server
-        '
-        Me.clm_server.Text = "Server"
-        Me.clm_server.Width = 151
-        '
-        'clm_location
-        '
-        Me.clm_location.Text = "Location"
-        Me.clm_location.Width = 147
-        '
-        'clm_realmlist
-        '
-        Me.clm_realmlist.Text = "Realmlist"
-        Me.clm_realmlist.Width = 197
-        '
-        'clm_status
-        '
-        Me.clm_status.Text = "Status"
-        Me.clm_status.Width = 104
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -226,6 +192,13 @@ Partial Class frm_main
         Me.Label4.Size = New System.Drawing.Size(234, 13)
         Me.Label4.TabIndex = 7
         Me.Label4.Text = "Chose the server from the list and clic connect..."
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(227, 335)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(143, 20)
+        Me.TextBox1.TabIndex = 14
         '
         'btn_options
         '
@@ -357,6 +330,54 @@ Partial Class frm_main
         Me.btn_server_add.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btn_server_add.UseVisualStyleBackColor = False
         '
+        'list_servers
+        '
+        Me.list_servers.Alignment = System.Windows.Forms.ListViewAlignment.[Default]
+        Me.list_servers.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.list_servers.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(91, Byte), Integer))
+        Me.list_servers.BackgroundImageTiled = True
+        Me.list_servers.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.clm_server, Me.clm_location, Me.clm_realmlist, Me.clm_status})
+        Me.list_servers.ForeColor = System.Drawing.Color.White
+        Me.list_servers.FullRowSelect = True
+        Me.list_servers.GridLines = True
+        Me.list_servers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.list_servers.HideSelection = False
+        Me.list_servers.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.list_servers.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1, ListViewItem2, ListViewItem3})
+        Me.list_servers.LabelEdit = True
+        Me.list_servers.LabelWrap = False
+        Me.list_servers.Location = New System.Drawing.Point(77, 123)
+        Me.list_servers.MultiSelect = False
+        Me.list_servers.Name = "list_servers"
+        Me.list_servers.ShowItemToolTips = True
+        Me.list_servers.Size = New System.Drawing.Size(605, 150)
+        Me.list_servers.TabIndex = 6
+        Me.list_servers.TabStop = False
+        Me.list_servers.UseCompatibleStateImageBehavior = False
+        Me.list_servers.View = System.Windows.Forms.View.Details
+        '
+        'clm_server
+        '
+        Me.clm_server.Text = "Server"
+        Me.clm_server.Width = 151
+        '
+        'clm_location
+        '
+        Me.clm_location.Text = "Location"
+        Me.clm_location.Width = 147
+        '
+        'clm_realmlist
+        '
+        Me.clm_realmlist.Text = "Realmlist"
+        Me.clm_realmlist.Width = 199
+        '
+        'clm_status
+        '
+        Me.clm_status.Text = "Status"
+        Me.clm_status.Width = 104
+        '
         'PictureBox2
         '
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
@@ -381,6 +402,17 @@ Partial Class frm_main
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
+        'RectangleShape1
+        '
+        Me.RectangleShape1.BackColor = System.Drawing.Color.Black
+        Me.RectangleShape1.BackgroundImage = Global.wow_launcher.My.Resources.Resources.bg
+        Me.RectangleShape1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.RectangleShape1.BorderColor = System.Drawing.Color.Black
+        Me.RectangleShape1.CornerRadius = 15
+        Me.RectangleShape1.Location = New System.Drawing.Point(64, 95)
+        Me.RectangleShape1.Name = "RectangleShape1"
+        Me.RectangleShape1.Size = New System.Drawing.Size(629, 303)
+        '
         'frm_main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -388,6 +420,7 @@ Partial Class frm_main
         Me.BackColor = System.Drawing.Color.SaddleBrown
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(761, 405)
+        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.btn_options)
         Me.Controls.Add(Me.btn_selserver)
         Me.Controls.Add(Me.btn_playwow)
@@ -600,6 +633,7 @@ Partial Class frm_main
         If Timer1.Enabled = False Then
             Timer1.Enabled = True
         End If
+        TextBox1.Text = langdir
     End Sub
 
     Public Function read_config()
@@ -657,6 +691,8 @@ Partial Class frm_main
             MsgBox(ex.Message.ToString, MsgBoxStyle.Critical)
         End Try
     End Sub
-
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents LineShape2 As Microsoft.VisualBasic.PowerPacks.LineShape
+    Friend WithEvents LineShape1 As Microsoft.VisualBasic.PowerPacks.LineShape
 
 End Class

@@ -263,6 +263,15 @@
   <ItemGroup>
     <None Include="Resources\search.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deathknightunholy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rogueassassination.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list_vb_bgr.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
