@@ -28,8 +28,12 @@ Partial Class frm_options
         Me.btn_apply = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.txt_gamedir = New System.Windows.Forms.TextBox()
+        Me.btn_seldir = New System.Windows.Forms.Button()
+        Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.cbx_gamelang = New System.Windows.Forms.ComboBox()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -46,7 +50,7 @@ Partial Class frm_options
         Me.btn_cancel.ForeColor = System.Drawing.Color.White
         Me.btn_cancel.Image = Global.wow_launcher.My.Resources.Resources.remove
         Me.btn_cancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_cancel.Location = New System.Drawing.Point(306, 133)
+        Me.btn_cancel.Location = New System.Drawing.Point(243, 133)
         Me.btn_cancel.Name = "btn_cancel"
         Me.btn_cancel.Size = New System.Drawing.Size(77, 28)
         Me.btn_cancel.TabIndex = 12
@@ -66,9 +70,9 @@ Partial Class frm_options
         Me.btn_acept.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btn_acept.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btn_acept.ForeColor = System.Drawing.Color.White
-        Me.btn_acept.Image = Global.wow_launcher.My.Resources.Resources._Select
+        Me.btn_acept.Image = Global.wow_launcher.My.Resources.Resources.selicon
         Me.btn_acept.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_acept.Location = New System.Drawing.Point(226, 133)
+        Me.btn_acept.Location = New System.Drawing.Point(163, 133)
         Me.btn_acept.Name = "btn_acept"
         Me.btn_acept.Size = New System.Drawing.Size(77, 28)
         Me.btn_acept.TabIndex = 11
@@ -91,7 +95,7 @@ Partial Class frm_options
         Me.btn_apply.ForeColor = System.Drawing.Color.White
         Me.btn_apply.Image = Global.wow_launcher.My.Resources.Resources.add_content
         Me.btn_apply.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_apply.Location = New System.Drawing.Point(120, 133)
+        Me.btn_apply.Location = New System.Drawing.Point(57, 133)
         Me.btn_apply.Name = "btn_apply"
         Me.btn_apply.Size = New System.Drawing.Size(104, 28)
         Me.btn_apply.TabIndex = 13
@@ -121,38 +125,71 @@ Partial Class frm_options
         Me.Label1.TabIndex = 15
         Me.Label1.Text = "Game Dir:"
         '
-        'TextBox1
+        'txt_gamedir
         '
-        Me.TextBox1.Location = New System.Drawing.Point(62, 21)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.ReadOnly = True
-        Me.TextBox1.Size = New System.Drawing.Size(238, 20)
-        Me.TextBox1.TabIndex = 16
-        Me.TextBox1.TabStop = False
+        Me.txt_gamedir.Location = New System.Drawing.Point(62, 21)
+        Me.txt_gamedir.Name = "txt_gamedir"
+        Me.txt_gamedir.ReadOnly = True
+        Me.txt_gamedir.Size = New System.Drawing.Size(168, 20)
+        Me.txt_gamedir.TabIndex = 16
+        Me.txt_gamedir.TabStop = False
         '
-        'Button1
+        'btn_seldir
         '
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Image = Global.wow_launcher.My.Resources.Resources.search
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(302, 21)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(81, 21)
-        Me.Button1.TabIndex = 17
-        Me.Button1.Text = "Select Dir."
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.btn_seldir.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.btn_seldir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_seldir.ForeColor = System.Drawing.Color.White
+        Me.btn_seldir.Image = Global.wow_launcher.My.Resources.Resources.search
+        Me.btn_seldir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_seldir.Location = New System.Drawing.Point(236, 21)
+        Me.btn_seldir.Name = "btn_seldir"
+        Me.btn_seldir.Size = New System.Drawing.Size(81, 21)
+        Me.btn_seldir.TabIndex = 17
+        Me.btn_seldir.Text = "Select Dir."
+        Me.btn_seldir.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_seldir.UseVisualStyleBackColor = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Black
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(7, 50)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(89, 13)
+        Me.Label2.TabIndex = 18
+        Me.Label2.Text = "Game Language:"
+        '
+        'cbx_gamelang
+        '
+        Me.cbx_gamelang.BackColor = System.Drawing.Color.Black
+        Me.cbx_gamelang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbx_gamelang.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cbx_gamelang.ForeColor = System.Drawing.Color.White
+        Me.cbx_gamelang.FormattingEnabled = True
+        Me.cbx_gamelang.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.cbx_gamelang.IntegralHeight = False
+        Me.cbx_gamelang.Items.AddRange(New Object() {"English United States", "English Great Britain", "German", "French", "Spanish Spain", "Spanish Mexico", "Russian"})
+        Me.cbx_gamelang.Location = New System.Drawing.Point(102, 47)
+        Me.cbx_gamelang.Name = "cbx_gamelang"
+        Me.cbx_gamelang.Size = New System.Drawing.Size(122, 21)
+        Me.cbx_gamelang.TabIndex = 19
+        Me.cbx_gamelang.TabStop = False
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
         'frm_options
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.wow_launcher.My.Resources.Resources.hunterbeastmastery
-        Me.ClientSize = New System.Drawing.Size(393, 165)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.TextBox1)
+        Me.ClientSize = New System.Drawing.Size(324, 161)
+        Me.Controls.Add(Me.cbx_gamelang)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.btn_seldir)
+        Me.Controls.Add(Me.txt_gamedir)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btn_apply)
         Me.Controls.Add(Me.btn_cancel)
@@ -173,6 +210,10 @@ Partial Class frm_options
     Friend WithEvents btn_apply As System.Windows.Forms.Button
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents txt_gamedir As System.Windows.Forms.TextBox
+    Friend WithEvents btn_seldir As System.Windows.Forms.Button
+    Friend WithEvents FolderBrowserDialog1 As System.Windows.Forms.FolderBrowserDialog
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents cbx_gamelang As System.Windows.Forms.ComboBox
+    Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
 End Class

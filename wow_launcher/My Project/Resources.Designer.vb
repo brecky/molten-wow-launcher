@@ -60,13 +60,6 @@ Namespace My.Resources
             End Set
         End Property
         
-        Friend ReadOnly Property _Select() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("Select", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
         Friend ReadOnly Property add_content() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("add_content", resourceCulture)
@@ -88,6 +81,13 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property clear() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("clear", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property close_01() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("close_01", resourceCulture)
@@ -105,13 +105,6 @@ Namespace My.Resources
         Friend ReadOnly Property favicon() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("favicon", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        Friend ReadOnly Property gtk_clear() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("gtk-clear", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -182,6 +175,13 @@ Namespace My.Resources
         Friend ReadOnly Property search() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("search", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property selicon() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("selicon", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

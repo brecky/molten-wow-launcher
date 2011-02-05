@@ -9,13 +9,13 @@ Imports System.Runtime.InteropServices
 ' Revisar los valores de los atributos del ensamblado
 
 <Assembly: AssemblyTitle("wow_launcher")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("Microsoft")> 
+<Assembly: AssemblyDescription("World of warcraft Game Launcher")> 
+<Assembly: AssemblyCompany("Overload Media")> 
 <Assembly: AssemblyProduct("wow_launcher")> 
-<Assembly: AssemblyCopyright("Copyright © Microsoft 2011")> 
-<Assembly: AssemblyTrademark("")> 
+<Assembly: AssemblyCopyright("ManolO")> 
+<Assembly: AssemblyTrademark("Overload Media")> 
 
-<Assembly: ComVisible(False)>
+<Assembly: ComVisible(False)> 
 
 'El siguiente GUID sirve como identificador de typelib si este proyecto se expone a COM
 <Assembly: Guid("55c0d6e8-1702-46ee-8cfc-d8e517cc3fa9")> 

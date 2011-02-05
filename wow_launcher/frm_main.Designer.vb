@@ -12,7 +12,7 @@ Partial Class frm_main
     Dim ip As IPAddress
     Dim selser As String
 
-    Dim listaindice As Integer, gamedir As String, gamelang As String
+    Dim listaindice As Integer, gamedir As String, gamelang As String, langdir As String
 
     Public Const WM_NCLBUTTONDOWN As Integer = &HA1
     Public Const HTCAPTION As Integer = &H2
@@ -51,6 +51,7 @@ Partial Class frm_main
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.RectangleShape1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.lbl_wowdir = New System.Windows.Forms.Label()
         Me.lbl_lang = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -69,7 +70,6 @@ Partial Class frm_main
         Me.btn_server_add = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.RectangleShape1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -121,6 +121,17 @@ Partial Class frm_main
         Me.ShapeContainer1.Size = New System.Drawing.Size(761, 405)
         Me.ShapeContainer1.TabIndex = 1
         Me.ShapeContainer1.TabStop = False
+        '
+        'RectangleShape1
+        '
+        Me.RectangleShape1.BackColor = System.Drawing.Color.Black
+        Me.RectangleShape1.BackgroundImage = Global.wow_launcher.My.Resources.Resources.bg
+        Me.RectangleShape1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.RectangleShape1.BorderColor = System.Drawing.Color.Black
+        Me.RectangleShape1.CornerRadius = 15
+        Me.RectangleShape1.Location = New System.Drawing.Point(64, 95)
+        Me.RectangleShape1.Name = "RectangleShape1"
+        Me.RectangleShape1.Size = New System.Drawing.Size(629, 303)
         '
         'lbl_wowdir
         '
@@ -248,14 +259,14 @@ Partial Class frm_main
         Me.btn_selserver.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow
         Me.btn_selserver.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_selserver.ForeColor = System.Drawing.Color.White
-        Me.btn_selserver.Image = Global.wow_launcher.My.Resources.Resources._Select
+        Me.btn_selserver.Image = Global.wow_launcher.My.Resources.Resources.selicon
         Me.btn_selserver.ImageAlign = System.Drawing.ContentAlignment.TopLeft
         Me.btn_selserver.Location = New System.Drawing.Point(484, 278)
         Me.btn_selserver.Name = "btn_selserver"
         Me.btn_selserver.Size = New System.Drawing.Size(97, 27)
         Me.btn_selserver.TabIndex = 12
         Me.btn_selserver.TabStop = False
-        Me.btn_selserver.Text = "Select server"
+        Me.btn_selserver.Text = "Set Realmlist"
         Me.btn_selserver.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btn_selserver.UseVisualStyleBackColor = False
         '
@@ -292,7 +303,7 @@ Partial Class frm_main
         Me.btn_clearcache.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow
         Me.btn_clearcache.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_clearcache.ForeColor = System.Drawing.Color.White
-        Me.btn_clearcache.Image = Global.wow_launcher.My.Resources.Resources.gtk_clear
+        Me.btn_clearcache.Image = Global.wow_launcher.My.Resources.Resources.clear
         Me.btn_clearcache.ImageAlign = System.Drawing.ContentAlignment.TopLeft
         Me.btn_clearcache.Location = New System.Drawing.Point(587, 278)
         Me.btn_clearcache.Name = "btn_clearcache"
@@ -369,17 +380,6 @@ Partial Class frm_main
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
-        '
-        'RectangleShape1
-        '
-        Me.RectangleShape1.BackColor = System.Drawing.Color.Black
-        Me.RectangleShape1.BackgroundImage = Global.wow_launcher.My.Resources.Resources.bg
-        Me.RectangleShape1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.RectangleShape1.BorderColor = System.Drawing.Color.Black
-        Me.RectangleShape1.CornerRadius = 15
-        Me.RectangleShape1.Location = New System.Drawing.Point(64, 95)
-        Me.RectangleShape1.Name = "RectangleShape1"
-        Me.RectangleShape1.Size = New System.Drawing.Size(629, 303)
         '
         'frm_main
         '
@@ -605,9 +605,26 @@ Partial Class frm_main
     Public Function read_config()
         selser = GetSetting(My.Application.Info.ProductName, "realms", "selectedrealm", "logon.molten-wow.com")
         gamedir = GetSetting(My.Application.Info.ProductName, "realms", "gamedir", "(No dir selected)")
-        gamelang = GetSetting(My.Application.Info.ProductName, "realms", "gamelang", "(English-Great Britain)")
+        gamelang = GetSetting(My.Application.Info.ProductName, "realms", "gamelang", "English United States")
         lbl_wowdir.Text = "Game Dir: " & gamedir
         lbl_lang.Text = "Language: " & gamelang
+        'check the game language for game data
+        If gamelang = "English United States" Then
+            langdir = "enUS"
+        ElseIf gamelang = "English Great Britain" Then
+            langdir = "enGB"
+        ElseIf gamelang = "German" Then
+            langdir = "deDE"
+        ElseIf gamelang = "French" Then
+            langdir = "frFR"
+        ElseIf gamelang = "Spanish Spain" Then
+            langdir = "esES"
+        ElseIf gamelang = "Spanish Mexico" Then
+            langdir = "esMX"
+        ElseIf gamelang = "Russian" Then
+            langdir = "ruRU"
+        End If
+        'end check
         Return 0
     End Function
 
@@ -618,4 +635,28 @@ Partial Class frm_main
         HideToolStripMenuItem.Visible = False
         ToolStripSeparator1.Visible = False
     End Sub
+
+    Private Sub btn_clearcache_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_clearcache.Click
+        Try
+            Dim midirectorio As String = gamedir & "cache\wdb"
+            If gamedir = "(No dir selected)" Then
+                MsgBox("The game's path is invalid. Please check your game directory and try again", 16, "Clear Cache")
+            Else
+                'check if file wow.exe exist into the selected folder, if exist save the changes, if is not exist then send a msgbox
+                Dim cachedir As String
+                cachedir = gamedir & "CACHE\WDB"
+                If System.IO.Directory.Exists(cachedir) = True Then
+                    My.Computer.FileSystem.DeleteDirectory(midirectorio, FileIO.UIOption.OnlyErrorDialogs, FileIO.RecycleOption.DeletePermanently, FileIO.UICancelOption.DoNothing)
+                    MsgBox("The GAME CACHE was deleted successfully", 64, "Clear Cache")
+                Else
+                    MsgBox("The GAME CACHE was not deleted." & vbCrLf & "Check the files aren't in read only mode or exist.", 48, "Clear Cache")
+                End If
+            End If
+
+        Catch ex As Exception
+            MsgBox(ex.Message.ToString, MsgBoxStyle.Critical)
+        End Try
+    End Sub
+
+
 End Class

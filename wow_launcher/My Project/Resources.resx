@@ -130,7 +130,7 @@
   <data name="icon_alliance" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_alliance.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="gtk-clear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="clear" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gtk-clear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="arenapointsicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -163,7 +163,7 @@
   <data name="icon_neutral" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_neutral.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Select" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="selicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Select.Png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="close_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
