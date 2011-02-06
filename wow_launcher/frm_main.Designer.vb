@@ -54,26 +54,32 @@ Partial Class frm_main
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.LineShape2 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
-        Me.RectangleShape1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.lbl_wowdir = New System.Windows.Forms.Label()
         Me.lbl_lang = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.list_servers = New System.Windows.Forms.ListView()
+        Me.clm_server = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.clm_location = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.clm_realmlist = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.clm_status = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.pic_armory = New System.Windows.Forms.PictureBox()
+        Me.pic_forum = New System.Windows.Forms.PictureBox()
+        Me.pic_web = New System.Windows.Forms.PictureBox()
         Me.btn_options = New System.Windows.Forms.Button()
         Me.btn_selserver = New System.Windows.Forms.Button()
         Me.btn_playwow = New System.Windows.Forms.Button()
         Me.btn_clearcache = New System.Windows.Forms.Button()
         Me.btn_server_remove = New System.Windows.Forms.Button()
         Me.btn_server_add = New System.Windows.Forms.Button()
-        Me.list_servers = New System.Windows.Forms.ListView()
-        Me.clm_server = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.clm_location = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.clm_realmlist = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.clm_status = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.RectangleShape1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.ContextMenuStrip1.SuspendLayout()
+        CType(Me.pic_armory, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pic_forum, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pic_web, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -144,17 +150,6 @@ Partial Class frm_main
         Me.LineShape1.Y1 = 378
         Me.LineShape1.Y2 = 378
         '
-        'RectangleShape1
-        '
-        Me.RectangleShape1.BackColor = System.Drawing.Color.Black
-        Me.RectangleShape1.BackgroundImage = Global.wow_launcher.My.Resources.Resources.bg
-        Me.RectangleShape1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.RectangleShape1.BorderColor = System.Drawing.Color.Black
-        Me.RectangleShape1.CornerRadius = 15
-        Me.RectangleShape1.Location = New System.Drawing.Point(64, 95)
-        Me.RectangleShape1.Name = "RectangleShape1"
-        Me.RectangleShape1.Size = New System.Drawing.Size(629, 303)
-        '
         'lbl_wowdir
         '
         Me.lbl_wowdir.BackColor = System.Drawing.Color.Black
@@ -162,7 +157,7 @@ Partial Class frm_main
         Me.lbl_wowdir.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
         Me.lbl_wowdir.Location = New System.Drawing.Point(74, 381)
         Me.lbl_wowdir.Name = "lbl_wowdir"
-        Me.lbl_wowdir.Size = New System.Drawing.Size(283, 16)
+        Me.lbl_wowdir.Size = New System.Drawing.Size(280, 16)
         Me.lbl_wowdir.TabIndex = 3
         Me.lbl_wowdir.Text = "Game Dir: (No dir selected)"
         '
@@ -173,7 +168,7 @@ Partial Class frm_main
         Me.lbl_lang.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
         Me.lbl_lang.Location = New System.Drawing.Point(357, 381)
         Me.lbl_lang.Name = "lbl_lang"
-        Me.lbl_lang.Size = New System.Drawing.Size(201, 16)
+        Me.lbl_lang.Size = New System.Drawing.Size(195, 16)
         Me.lbl_lang.TabIndex = 4
         Me.lbl_lang.Text = "Language: (English-Great Britain)"
         '
@@ -204,6 +199,87 @@ Partial Class frm_main
         Me.Label4.TabIndex = 7
         Me.Label4.Text = "Chose the server from the list and clic connect..."
         '
+        'list_servers
+        '
+        Me.list_servers.Alignment = System.Windows.Forms.ListViewAlignment.[Default]
+        Me.list_servers.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.list_servers.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(91, Byte), Integer))
+        Me.list_servers.BackgroundImageTiled = True
+        Me.list_servers.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.clm_server, Me.clm_location, Me.clm_realmlist, Me.clm_status})
+        Me.list_servers.ForeColor = System.Drawing.Color.White
+        Me.list_servers.FullRowSelect = True
+        Me.list_servers.GridLines = True
+        Me.list_servers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.list_servers.HideSelection = False
+        Me.list_servers.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.list_servers.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1, ListViewItem2, ListViewItem3})
+        Me.list_servers.LabelEdit = True
+        Me.list_servers.LabelWrap = False
+        Me.list_servers.Location = New System.Drawing.Point(77, 123)
+        Me.list_servers.MultiSelect = False
+        Me.list_servers.Name = "list_servers"
+        Me.list_servers.ShowItemToolTips = True
+        Me.list_servers.Size = New System.Drawing.Size(605, 150)
+        Me.list_servers.TabIndex = 6
+        Me.list_servers.TabStop = False
+        Me.list_servers.UseCompatibleStateImageBehavior = False
+        Me.list_servers.View = System.Windows.Forms.View.Details
+        '
+        'clm_server
+        '
+        Me.clm_server.Text = "Server"
+        Me.clm_server.Width = 151
+        '
+        'clm_location
+        '
+        Me.clm_location.Text = "Location"
+        Me.clm_location.Width = 147
+        '
+        'clm_realmlist
+        '
+        Me.clm_realmlist.Text = "Realmlist"
+        Me.clm_realmlist.Width = 199
+        '
+        'clm_status
+        '
+        Me.clm_status.Text = "Status"
+        Me.clm_status.Width = 104
+        '
+        'pic_armory
+        '
+        Me.pic_armory.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.pic_armory.Image = Global.wow_launcher.My.Resources.Resources.btn_armory
+        Me.pic_armory.Location = New System.Drawing.Point(242, 43)
+        Me.pic_armory.Name = "pic_armory"
+        Me.pic_armory.Size = New System.Drawing.Size(64, 26)
+        Me.pic_armory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.pic_armory.TabIndex = 16
+        Me.pic_armory.TabStop = False
+        '
+        'pic_forum
+        '
+        Me.pic_forum.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.pic_forum.Image = Global.wow_launcher.My.Resources.Resources.btn_forum
+        Me.pic_forum.Location = New System.Drawing.Point(184, 41)
+        Me.pic_forum.Name = "pic_forum"
+        Me.pic_forum.Size = New System.Drawing.Size(56, 28)
+        Me.pic_forum.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.pic_forum.TabIndex = 15
+        Me.pic_forum.TabStop = False
+        '
+        'pic_web
+        '
+        Me.pic_web.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.pic_web.Image = Global.wow_launcher.My.Resources.Resources.btn_web
+        Me.pic_web.Location = New System.Drawing.Point(110, 39)
+        Me.pic_web.Name = "pic_web"
+        Me.pic_web.Size = New System.Drawing.Size(72, 31)
+        Me.pic_web.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.pic_web.TabIndex = 14
+        Me.pic_web.TabStop = False
+        '
         'btn_options
         '
         Me.btn_options.AutoSize = True
@@ -229,7 +305,7 @@ Partial Class frm_main
         '
         Me.btn_selserver.AutoSize = True
         Me.btn_selserver.BackColor = System.Drawing.Color.Black
-        Me.btn_selserver.BackgroundImage = CType(resources.GetObject("btn_selserver.BackgroundImage"), System.Drawing.Image)
+        Me.btn_selserver.BackgroundImage = Global.wow_launcher.My.Resources.Resources.hunterbeastmastery
         Me.btn_selserver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn_selserver.Enabled = False
         Me.btn_selserver.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red
@@ -335,54 +411,6 @@ Partial Class frm_main
         Me.btn_server_add.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btn_server_add.UseVisualStyleBackColor = False
         '
-        'list_servers
-        '
-        Me.list_servers.Alignment = System.Windows.Forms.ListViewAlignment.[Default]
-        Me.list_servers.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.list_servers.BackColor = System.Drawing.Color.FromArgb(CType(CType(43, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(91, Byte), Integer))
-        Me.list_servers.BackgroundImageTiled = True
-        Me.list_servers.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.clm_server, Me.clm_location, Me.clm_realmlist, Me.clm_status})
-        Me.list_servers.ForeColor = System.Drawing.Color.White
-        Me.list_servers.FullRowSelect = True
-        Me.list_servers.GridLines = True
-        Me.list_servers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
-        Me.list_servers.HideSelection = False
-        Me.list_servers.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.list_servers.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1, ListViewItem2, ListViewItem3})
-        Me.list_servers.LabelEdit = True
-        Me.list_servers.LabelWrap = False
-        Me.list_servers.Location = New System.Drawing.Point(77, 123)
-        Me.list_servers.MultiSelect = False
-        Me.list_servers.Name = "list_servers"
-        Me.list_servers.ShowItemToolTips = True
-        Me.list_servers.Size = New System.Drawing.Size(605, 150)
-        Me.list_servers.TabIndex = 6
-        Me.list_servers.TabStop = False
-        Me.list_servers.UseCompatibleStateImageBehavior = False
-        Me.list_servers.View = System.Windows.Forms.View.Details
-        '
-        'clm_server
-        '
-        Me.clm_server.Text = "Server"
-        Me.clm_server.Width = 151
-        '
-        'clm_location
-        '
-        Me.clm_location.Text = "Location"
-        Me.clm_location.Width = 147
-        '
-        'clm_realmlist
-        '
-        Me.clm_realmlist.Text = "Realmlist"
-        Me.clm_realmlist.Width = 199
-        '
-        'clm_status
-        '
-        Me.clm_status.Text = "Status"
-        Me.clm_status.Width = 104
-        '
         'PictureBox2
         '
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
@@ -407,6 +435,17 @@ Partial Class frm_main
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
+        'RectangleShape1
+        '
+        Me.RectangleShape1.BackColor = System.Drawing.Color.Black
+        Me.RectangleShape1.BackgroundImage = Global.wow_launcher.My.Resources.Resources.bg
+        Me.RectangleShape1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.RectangleShape1.BorderColor = System.Drawing.Color.Black
+        Me.RectangleShape1.CornerRadius = 15
+        Me.RectangleShape1.Location = New System.Drawing.Point(64, 95)
+        Me.RectangleShape1.Name = "RectangleShape1"
+        Me.RectangleShape1.Size = New System.Drawing.Size(629, 303)
+        '
         'frm_main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -414,6 +453,9 @@ Partial Class frm_main
         Me.BackColor = System.Drawing.Color.SaddleBrown
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(761, 405)
+        Me.Controls.Add(Me.pic_armory)
+        Me.Controls.Add(Me.pic_forum)
+        Me.Controls.Add(Me.pic_web)
         Me.Controls.Add(Me.btn_options)
         Me.Controls.Add(Me.btn_selserver)
         Me.Controls.Add(Me.btn_playwow)
@@ -429,11 +471,15 @@ Partial Class frm_main
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.ShapeContainer1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frm_main"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Molten wow Game Launcher"
         Me.TransparencyKey = System.Drawing.Color.SaddleBrown
         Me.ContextMenuStrip1.ResumeLayout(False)
+        CType(Me.pic_armory, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pic_forum, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pic_web, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -486,7 +532,7 @@ Partial Class frm_main
 
     Private Sub PictureBox2_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox2.MouseEnter
         'change the x picture
-        PictureBox2.Image = wow_launcher.My.Resources.Resources.close_01
+        PictureBox2.Image = My.Resources.Resources.close_01
     End Sub
 
     Private Sub PictureBox2_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox2.MouseLeave
@@ -749,5 +795,64 @@ Partial Class frm_main
             ShowToolStripMenuItem.Visible = True
             HideToolStripMenuItem.Visible = False
         End If
+    End Sub
+    Friend WithEvents pic_web As System.Windows.Forms.PictureBox
+    Friend WithEvents pic_forum As System.Windows.Forms.PictureBox
+    Friend WithEvents pic_armory As System.Windows.Forms.PictureBox
+
+    Private Sub pic_web_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles pic_web.Click
+        'go to molten wow website
+        Dim selurl As New System.Diagnostics.Process
+        With selurl
+            .StartInfo.FileName = "https://www.molten-wow.com"
+            .Start()
+        End With
+    End Sub
+
+    Private Sub pic_web_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles pic_web.MouseEnter
+        'change the website picture
+        pic_web.Image = My.Resources.Resources.btn_web_sel
+    End Sub
+
+    Private Sub pic_web_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles pic_web.MouseLeave
+        'return the website picture
+        pic_web.Image = My.Resources.Resources.btn_web
+    End Sub
+
+    Private Sub pic_forum_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles pic_forum.Click
+        'go to molten wow forum
+        Dim selurl As New System.Diagnostics.Process
+        With selurl
+            .StartInfo.FileName = "http://forum.molten-wow.com/index.php"
+            .Start()
+        End With
+    End Sub
+
+    Private Sub pic_forum_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles pic_forum.MouseEnter
+        'change the forum picture
+        pic_forum.Image = My.Resources.Resources.btn_forum_sel
+    End Sub
+
+    Private Sub pic_forum_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles pic_forum.MouseLeave
+        'return the forum picture
+        pic_forum.Image = My.Resources.Resources.btn_forum
+    End Sub
+    Private Sub pic_armory_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles pic_armory.Click
+        'go to molten wow armory
+        Dim selurl As New System.Diagnostics.Process
+        With selurl
+            .StartInfo.FileName = "http://armory.molten-wow.com"
+            .Start()
+        End With
+    End Sub
+
+    Private Sub pic_armory_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles pic_armory.MouseEnter
+        'change the armory picture
+        pic_armory.Image = My.Resources.Resources.btn_armory_sel
+    End Sub
+
+    Private Sub pic_armory_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles pic_armory.MouseLeave
+        'return the armory picture
+        pic_armory.Image = My.Resources.Resources.btn_armory
     End Sub
 End Class

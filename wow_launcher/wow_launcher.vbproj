@@ -68,8 +68,7 @@
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>Resources\mw_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
@@ -271,6 +270,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\list_vb_bgr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_armory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_armory_sel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_forum.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_forum_sel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_web.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_web_sel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mw_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
