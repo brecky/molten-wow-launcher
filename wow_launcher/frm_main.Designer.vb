@@ -54,6 +54,7 @@ Partial Class frm_main
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.LineShape2 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
+        Me.RectangleShape1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.lbl_wowdir = New System.Windows.Forms.Label()
         Me.lbl_lang = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -75,7 +76,6 @@ Partial Class frm_main
         Me.btn_server_add = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.RectangleShape1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.pic_armory, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pic_forum, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -149,6 +149,17 @@ Partial Class frm_main
         Me.LineShape1.X2 = 681
         Me.LineShape1.Y1 = 378
         Me.LineShape1.Y2 = 378
+        '
+        'RectangleShape1
+        '
+        Me.RectangleShape1.BackColor = System.Drawing.Color.Black
+        Me.RectangleShape1.BackgroundImage = Global.wow_launcher.My.Resources.Resources.bg
+        Me.RectangleShape1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.RectangleShape1.BorderColor = System.Drawing.Color.Black
+        Me.RectangleShape1.CornerRadius = 15
+        Me.RectangleShape1.Location = New System.Drawing.Point(64, 95)
+        Me.RectangleShape1.Name = "RectangleShape1"
+        Me.RectangleShape1.Size = New System.Drawing.Size(629, 303)
         '
         'lbl_wowdir
         '
@@ -434,17 +445,6 @@ Partial Class frm_main
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
-        '
-        'RectangleShape1
-        '
-        Me.RectangleShape1.BackColor = System.Drawing.Color.Black
-        Me.RectangleShape1.BackgroundImage = Global.wow_launcher.My.Resources.Resources.bg
-        Me.RectangleShape1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.RectangleShape1.BorderColor = System.Drawing.Color.Black
-        Me.RectangleShape1.CornerRadius = 15
-        Me.RectangleShape1.Location = New System.Drawing.Point(64, 95)
-        Me.RectangleShape1.Name = "RectangleShape1"
-        Me.RectangleShape1.Size = New System.Drawing.Size(629, 303)
         '
         'frm_main
         '

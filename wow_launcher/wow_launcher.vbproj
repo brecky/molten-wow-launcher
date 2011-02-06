@@ -68,7 +68,7 @@
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\mw_icon.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\MW_logo_big.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
@@ -291,6 +291,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\mw_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MW_logo_big.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
