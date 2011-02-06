@@ -13,3 +13,8 @@ E:\moltenlauncher\wow_launcher\wow_launcher\obj\x86\Release\GenerateResource.wri
 E:\moltenlauncher\wow_launcher\wow_launcher\obj\x86\Release\wow_launcher.exe
 E:\moltenlauncher\wow_launcher\wow_launcher\obj\x86\Release\wow_launcher.xml
 E:\moltenlauncher\wow_launcher\wow_launcher\obj\x86\Release\wow_launcher.pdb
+E:\moltenlauncher\wow_launcher\wow_launcher\bin\Release\wow_launcher.exe.manifest
+E:\moltenlauncher\wow_launcher\wow_launcher\bin\Release\wow_launcher.application
+E:\moltenlauncher\wow_launcher\wow_launcher\obj\x86\Release\wow_launcher.TrustInfo.xml
+E:\moltenlauncher\wow_launcher\wow_launcher\obj\x86\Release\wow_launcher.exe.manifest
+E:\moltenlauncher\wow_launcher\wow_launcher\obj\x86\Release\wow_launcher.application
