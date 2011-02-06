@@ -170,7 +170,7 @@ Partial Class frm_options
         Me.cbx_gamelang.FormattingEnabled = True
         Me.cbx_gamelang.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.cbx_gamelang.IntegralHeight = False
-        Me.cbx_gamelang.Items.AddRange(New Object() {"English United States", "English Great Britain", "German", "French", "Spanish Spain", "Spanish Mexico", "Russian"})
+        Me.cbx_gamelang.Items.AddRange(New Object() {"English (United States)", "English (Great Britain)", "German", "French", "Spanish (Spain)", "Spanish (Mexico)", "Russian"})
         Me.cbx_gamelang.Location = New System.Drawing.Point(144, 47)
         Me.cbx_gamelang.Name = "cbx_gamelang"
         Me.cbx_gamelang.Size = New System.Drawing.Size(172, 21)
@@ -186,13 +186,11 @@ Partial Class frm_options
         Me.Label6.AutoEllipsis = True
         Me.Label6.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label6.ForeColor = System.Drawing.Color.Snow
-        Me.Label6.Location = New System.Drawing.Point(7, 77)
+        Me.Label6.Location = New System.Drawing.Point(7, 76)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(310, 53)
         Me.Label6.TabIndex = 20
-        Me.Label6.Text = "Note: Write only the url in Server Realmlist. You need exclude the ""Set Realmlist" & _
-            """. If you write ""Set Realmlist"" in Server realm the launcher can't connect to se" & _
-            "rver."
+        Me.Label6.Text = resources.GetString("Label6.Text")
         '
         'frm_options
         '

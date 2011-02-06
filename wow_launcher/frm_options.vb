@@ -54,7 +54,6 @@ Public Class frm_options
             btn_apply.Enabled = True
         ElseIf FolderBrowserDialog1.ShowDialog() = DialogResult.Cancel Then
             txt_gamedir.Text = GetSetting(My.Application.Info.ProductName, "realms", "gamedir", "(No dir selected)")
-
         End If
         Return 0
     End Function
@@ -67,7 +66,9 @@ Public Class frm_options
         btn_cancel.Enabled = False
         btn_apply.Enabled = False
         SaveSetting(My.Application.Info.ProductName, "realms", "gamedir", txt_gamedir.Text)
-        SaveSetting(My.Application.Info.ProductName, "realms", "gamelang", cbx_gamelang.SelectedItem)
+        If cbx_gamelang.SelectedItem <> "" Then
+            SaveSetting(My.Application.Info.ProductName, "realms", "gamelang", cbx_gamelang.SelectedItem)
+        End If
         frm_main.read_config()
         Return 0
     End Function

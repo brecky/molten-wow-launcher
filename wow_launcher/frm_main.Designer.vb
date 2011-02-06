@@ -5,7 +5,6 @@ Imports System.Net.NetworkInformation
 Partial Class frm_main
     Inherits System.Windows.Forms.Form
 
-    'variables para hacer ping'
     Dim i As Integer
     Dim eco As New System.Net.NetworkInformation.Ping
     Dim res As System.Net.NetworkInformation.PingReply
@@ -14,12 +13,14 @@ Partial Class frm_main
 
     Dim listaindice As Integer, gamedir As String, gamelang As String, langdir As String
 
+    Dim form_visible As Boolean
+
     Public Const WM_NCLBUTTONDOWN As Integer = &HA1
     Public Const HTCAPTION As Integer = &H2
     Declare Function ReleaseCapture Lib "user32.dll" () As Int32
     Declare Function SendMessage Lib "user32.dll" Alias "SendMessageA" (ByVal hwnd As IntPtr, ByVal wMsg As Int32, ByVal wParam As Int32, ByVal lParam As Int32) As Int32
 
-    'Form reemplaza a Dispose para limpiar la lista de componentes.
+    'Form overrides dispose to clean up the component list
     <System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
@@ -31,17 +32,17 @@ Partial Class frm_main
         End Try
     End Sub
 
-    'Requerido por el Diseñador de Windows Forms
+    'Required by the Windows Forms Designer
     Private components As System.ComponentModel.IContainer
 
-    'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
-    'Se puede modificar usando el Diseñador de Windows Forms.  
-    'No lo modifique con el editor de código.
+    'NOTE: The Windows Forms Designer requires the following procedure
+    'It can be modified using the Windows Form Designer.
+    'Do not modify the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_main))
-        Dim ListViewItem1 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Molten-Wow", "United States", "logon.molten-wow.com", "Selected"}, -1)
+        Dim ListViewItem1 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Molten-Wow", "United States", "logon.molten-wow.com", "No Selected"}, -1)
         Dim ListViewItem2 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Retail Wow [US]", "United States", "us.logon.worldofwarcraft.com", "No Selected"}, -1)
         Dim ListViewItem3 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem(New String() {"Retail Wow [EU]", "Europe", "eu.logon.worldofwarcraft.com", "No Selected"}, -1)
         Me.notifymenu = New System.Windows.Forms.NotifyIcon(Me.components)
@@ -53,12 +54,12 @@ Partial Class frm_main
         Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
         Me.LineShape2 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
+        Me.RectangleShape1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.lbl_wowdir = New System.Windows.Forms.Label()
         Me.lbl_lang = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.btn_options = New System.Windows.Forms.Button()
         Me.btn_selserver = New System.Windows.Forms.Button()
         Me.btn_playwow = New System.Windows.Forms.Button()
@@ -72,7 +73,6 @@ Partial Class frm_main
         Me.clm_status = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.RectangleShape1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -144,6 +144,17 @@ Partial Class frm_main
         Me.LineShape1.Y1 = 378
         Me.LineShape1.Y2 = 378
         '
+        'RectangleShape1
+        '
+        Me.RectangleShape1.BackColor = System.Drawing.Color.Black
+        Me.RectangleShape1.BackgroundImage = Global.wow_launcher.My.Resources.Resources.bg
+        Me.RectangleShape1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.RectangleShape1.BorderColor = System.Drawing.Color.Black
+        Me.RectangleShape1.CornerRadius = 15
+        Me.RectangleShape1.Location = New System.Drawing.Point(64, 95)
+        Me.RectangleShape1.Name = "RectangleShape1"
+        Me.RectangleShape1.Size = New System.Drawing.Size(629, 303)
+        '
         'lbl_wowdir
         '
         Me.lbl_wowdir.BackColor = System.Drawing.Color.Black
@@ -192,13 +203,6 @@ Partial Class frm_main
         Me.Label4.Size = New System.Drawing.Size(234, 13)
         Me.Label4.TabIndex = 7
         Me.Label4.Text = "Chose the server from the list and clic connect..."
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(227, 335)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(143, 20)
-        Me.TextBox1.TabIndex = 14
         '
         'btn_options
         '
@@ -249,6 +253,7 @@ Partial Class frm_main
         Me.btn_playwow.BackColor = System.Drawing.Color.Black
         Me.btn_playwow.BackgroundImage = CType(resources.GetObject("btn_playwow.BackgroundImage"), System.Drawing.Image)
         Me.btn_playwow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btn_playwow.Enabled = False
         Me.btn_playwow.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red
         Me.btn_playwow.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow
         Me.btn_playwow.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -402,17 +407,6 @@ Partial Class frm_main
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'RectangleShape1
-        '
-        Me.RectangleShape1.BackColor = System.Drawing.Color.Black
-        Me.RectangleShape1.BackgroundImage = Global.wow_launcher.My.Resources.Resources.bg
-        Me.RectangleShape1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.RectangleShape1.BorderColor = System.Drawing.Color.Black
-        Me.RectangleShape1.CornerRadius = 15
-        Me.RectangleShape1.Location = New System.Drawing.Point(64, 95)
-        Me.RectangleShape1.Name = "RectangleShape1"
-        Me.RectangleShape1.Size = New System.Drawing.Size(629, 303)
-        '
         'frm_main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -420,7 +414,6 @@ Partial Class frm_main
         Me.BackColor = System.Drawing.Color.SaddleBrown
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(761, 405)
-        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.btn_options)
         Me.Controls.Add(Me.btn_selserver)
         Me.Controls.Add(Me.btn_playwow)
@@ -454,6 +447,7 @@ Partial Class frm_main
 
 
     Private Sub ExitToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExitToolStripMenuItem.Click
+        'close item for notify icon
         Me.Close()
     End Sub
     Friend WithEvents ShowToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -461,13 +455,17 @@ Partial Class frm_main
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
 
     Private Sub ShowToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ShowToolStripMenuItem.Click
+        'show main form item for notify icon
         Me.Show()
+        form_visible = True
         ShowToolStripMenuItem.Visible = False
         HideToolStripMenuItem.Visible = True
     End Sub
 
     Private Sub HideToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles HideToolStripMenuItem.Click
+        'hide main form item for notify icon
         Me.Hide()
+        form_visible = False
         ShowToolStripMenuItem.Visible = True
         HideToolStripMenuItem.Visible = False
     End Sub
@@ -482,14 +480,17 @@ Partial Class frm_main
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
 
     Private Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox2.Click
+        'x buttom close the app
         Me.Close()
     End Sub
 
     Private Sub PictureBox2_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox2.MouseEnter
+        'change the x picture
         PictureBox2.Image = wow_launcher.My.Resources.Resources.close_01
     End Sub
 
     Private Sub PictureBox2_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox2.MouseLeave
+        'change the x picture
         PictureBox2.Image = wow_launcher.My.Resources.Resources.close_02
     End Sub
     Friend WithEvents lbl_wowdir As System.Windows.Forms.Label
@@ -522,7 +523,13 @@ Partial Class frm_main
             btn_selserver.Enabled = False
         Else
             btn_server_remove.Enabled = True
-            btn_selserver.Enabled = True
+            If gamelang = "(No language selected)" Then
+                btn_selserver.Enabled = False
+            ElseIf gamedir = "(No dir selected)" Then
+                btn_selserver.Enabled = False
+            Else
+                btn_selserver.Enabled = True
+            End If
         End If
 
         'if some item in listview is selected, get the item index
@@ -539,9 +546,9 @@ Partial Class frm_main
     End Sub 'Form_Closing
 
     Private Sub frm_main_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        form_visible = True
         read_data()
         read_config()
-
     End Sub
     Friend WithEvents btn_playwow As System.Windows.Forms.Button
     Friend WithEvents btn_clearcache As System.Windows.Forms.Button
@@ -549,6 +556,7 @@ Partial Class frm_main
     Friend WithEvents btn_options As System.Windows.Forms.Button
 
     Private Sub btn_server_remove_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_server_remove.Click
+        'remove server from list
         Dim nombre As String, i As Integer, lista_contador As Integer, total As Integer
         nombre = My.Application.Info.ProductName
         lista_contador = GetSetting(nombre, "realms", "total", 0)
@@ -566,6 +574,7 @@ Partial Class frm_main
     End Sub
 
     Private Sub btn_server_add_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_server_add.Click
+        'show add_server form
         Me.Hide()
         frm_addserver.Show()
         ShowToolStripMenuItem.Visible = False
@@ -619,6 +628,7 @@ Partial Class frm_main
     End Function
 
     Private Sub btn_selserver_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_selserver.Click
+        'select server to deffault, and save into realmlist.wtf
         Dim i As Integer, lista_contador As Integer, nombre As String
         nombre = My.Application.Info.ProductName
         lista_contador = list_servers.Items.Count
@@ -629,45 +639,50 @@ Partial Class frm_main
         Next i
         list_servers.Items(listaindice).SubItems(3).Text = "Selected"
         SaveSetting(nombre, "realms", "selectedrealm", list_servers.Items(listaindice).SubItems(2).Text)
+        'save selected realm into realmlist.wtf
+        System.IO.File.WriteAllText(gamedir & "data\" & langdir & "\realmlist.wtf", "set realmlist " & list_servers.Items(listaindice).SubItems(2).Text)
+
         selser = list_servers.Items(listaindice).SubItems(2).Text
         If Timer1.Enabled = False Then
             Timer1.Enabled = True
         End If
-        TextBox1.Text = langdir
     End Sub
 
     Public Function read_config()
         selser = GetSetting(My.Application.Info.ProductName, "realms", "selectedrealm", "logon.molten-wow.com")
         gamedir = GetSetting(My.Application.Info.ProductName, "realms", "gamedir", "(No dir selected)")
-        gamelang = GetSetting(My.Application.Info.ProductName, "realms", "gamelang", "English United States")
+        gamelang = GetSetting(My.Application.Info.ProductName, "realms", "gamelang", "(No language selected)")
         lbl_wowdir.Text = "Game Dir: " & gamedir
         lbl_lang.Text = "Language: " & gamelang
-        'check the game language for game data
-        If gamelang = "English United States" Then
-            langdir = "enUS"
-        ElseIf gamelang = "English Great Britain" Then
-            langdir = "enGB"
-        ElseIf gamelang = "German" Then
-            langdir = "deDE"
-        ElseIf gamelang = "French" Then
-            langdir = "frFR"
-        ElseIf gamelang = "Spanish Spain" Then
-            langdir = "esES"
-        ElseIf gamelang = "Spanish Mexico" Then
-            langdir = "esMX"
-        ElseIf gamelang = "Russian" Then
-            langdir = "ruRU"
+        If gamedir = "(No dir selected)" Then
+            btn_playwow.Enabled = False
+        Else
+            btn_playwow.Enabled = True
         End If
-        'end check
+        If gamelang <> "(No language selected)" Then
+            'check the game language for game data
+            If gamelang = "English (United States)" Then
+                langdir = "enUS"
+            ElseIf gamelang = "English (Great Britain)" Then
+                langdir = "enGB"
+            ElseIf gamelang = "German" Then
+                langdir = "deDE"
+            ElseIf gamelang = "French" Then
+                langdir = "frFR"
+            ElseIf gamelang = "Spanish (Spain)" Then
+                langdir = "esES"
+            ElseIf gamelang = "Spanish (Mexico)" Then
+                langdir = "esMX"
+            ElseIf gamelang = "Russian" Then
+                langdir = "ruRU"
+            End If
+            'end check
+        End If
         Return 0
     End Function
 
     Private Sub btn_options_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_options.Click
-        Me.Hide()
-        frm_options.Show()
-        ShowToolStripMenuItem.Visible = False
-        HideToolStripMenuItem.Visible = False
-        ToolStripSeparator1.Visible = False
+        options()
     End Sub
 
     Private Sub btn_clearcache_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_clearcache.Click
@@ -691,8 +706,48 @@ Partial Class frm_main
             MsgBox(ex.Message.ToString, MsgBoxStyle.Critical)
         End Try
     End Sub
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+
+    Private Function options()
+        Try
+            Me.Hide()
+            ShowToolStripMenuItem.Visible = False
+            HideToolStripMenuItem.Visible = False
+            ToolStripSeparator1.Visible = False
+            frm_options.Show()
+            frm_options.Activate()
+        Catch ex As Exception
+            MsgBox(ex.Message.ToString, MsgBoxStyle.Critical)
+        End Try
+        Return 0
+    End Function
+
+
     Friend WithEvents LineShape2 As Microsoft.VisualBasic.PowerPacks.LineShape
     Friend WithEvents LineShape1 As Microsoft.VisualBasic.PowerPacks.LineShape
 
+    Private Sub btn_playwow_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_playwow.Click
+        'hide the main form and launch world of warcraft client
+        Me.Hide()
+        form_visible = False
+        ShowToolStripMenuItem.Visible = True
+        HideToolStripMenuItem.Visible = False
+        ToolStripSeparator1.Visible = False
+        Shell(gamedir & "wow.exe", AppWinStyle.NormalFocus)
+    End Sub
+
+    Private Sub notifymenu_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles notifymenu.DoubleClick
+        'get the mainform status and show or hide, depends of form status on notify icon double click
+        If form_visible = False Then
+            Me.Show()
+            Me.Activate()
+            form_visible = True
+            ShowToolStripMenuItem.Visible = False
+            HideToolStripMenuItem.Visible = True
+        ElseIf form_visible = True Then
+            Me.Hide()
+            form_visible = False
+            ShowToolStripMenuItem.Visible = True
+            HideToolStripMenuItem.Visible = False
+        End If
+    End Sub
 End Class
