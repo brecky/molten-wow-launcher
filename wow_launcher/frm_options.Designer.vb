@@ -35,6 +35,10 @@ Partial Class frm_options
         Me.cbx_gamelang = New System.Windows.Forms.ComboBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.cbx_gllang = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.cbx_playwow = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -51,7 +55,7 @@ Partial Class frm_options
         Me.btn_cancel.ForeColor = System.Drawing.Color.White
         Me.btn_cancel.Image = Global.wow_launcher.My.Resources.Resources.remove
         Me.btn_cancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_cancel.Location = New System.Drawing.Point(243, 133)
+        Me.btn_cancel.Location = New System.Drawing.Point(243, 188)
         Me.btn_cancel.Name = "btn_cancel"
         Me.btn_cancel.Size = New System.Drawing.Size(77, 28)
         Me.btn_cancel.TabIndex = 12
@@ -73,7 +77,7 @@ Partial Class frm_options
         Me.btn_acept.ForeColor = System.Drawing.Color.White
         Me.btn_acept.Image = Global.wow_launcher.My.Resources.Resources.selicon
         Me.btn_acept.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_acept.Location = New System.Drawing.Point(163, 133)
+        Me.btn_acept.Location = New System.Drawing.Point(163, 188)
         Me.btn_acept.Name = "btn_acept"
         Me.btn_acept.Size = New System.Drawing.Size(77, 28)
         Me.btn_acept.TabIndex = 11
@@ -96,7 +100,7 @@ Partial Class frm_options
         Me.btn_apply.ForeColor = System.Drawing.Color.White
         Me.btn_apply.Image = Global.wow_launcher.My.Resources.Resources.add_content
         Me.btn_apply.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_apply.Location = New System.Drawing.Point(57, 133)
+        Me.btn_apply.Location = New System.Drawing.Point(57, 188)
         Me.btn_apply.Name = "btn_apply"
         Me.btn_apply.Size = New System.Drawing.Size(104, 28)
         Me.btn_apply.TabIndex = 13
@@ -109,7 +113,7 @@ Partial Class frm_options
         '
         Me.PictureBox1.BackgroundImage = Global.wow_launcher.My.Resources.Resources.molt_btn_bgrond
         Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox1.Location = New System.Drawing.Point(-7, 132)
+        Me.PictureBox1.Location = New System.Drawing.Point(-7, 187)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(408, 53)
         Me.PictureBox1.TabIndex = 14
@@ -128,10 +132,10 @@ Partial Class frm_options
         '
         'txt_gamedir
         '
-        Me.txt_gamedir.Location = New System.Drawing.Point(62, 21)
+        Me.txt_gamedir.Location = New System.Drawing.Point(67, 21)
         Me.txt_gamedir.Name = "txt_gamedir"
         Me.txt_gamedir.ReadOnly = True
-        Me.txt_gamedir.Size = New System.Drawing.Size(168, 20)
+        Me.txt_gamedir.Size = New System.Drawing.Size(163, 20)
         Me.txt_gamedir.TabIndex = 16
         Me.txt_gamedir.TabStop = False
         '
@@ -186,24 +190,82 @@ Partial Class frm_options
         Me.Label6.AutoEllipsis = True
         Me.Label6.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label6.ForeColor = System.Drawing.Color.Snow
-        Me.Label6.Location = New System.Drawing.Point(7, 76)
+        Me.Label6.Location = New System.Drawing.Point(7, 131)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(310, 53)
         Me.Label6.TabIndex = 20
         Me.Label6.Text = resources.GetString("Label6.Text")
+        '
+        'cbx_gllang
+        '
+        Me.cbx_gllang.BackColor = System.Drawing.Color.Black
+        Me.cbx_gllang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbx_gllang.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cbx_gllang.ForeColor = System.Drawing.Color.White
+        Me.cbx_gllang.FormattingEnabled = True
+        Me.cbx_gllang.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.cbx_gllang.IntegralHeight = False
+        Me.cbx_gllang.Items.AddRange(New Object() {"English", "Español"})
+        Me.cbx_gllang.Location = New System.Drawing.Point(144, 74)
+        Me.cbx_gllang.Name = "cbx_gllang"
+        Me.cbx_gllang.Size = New System.Drawing.Size(172, 21)
+        Me.cbx_gllang.TabIndex = 22
+        Me.cbx_gllang.TabStop = False
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Black
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(6, 78)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(133, 13)
+        Me.Label3.TabIndex = 21
+        Me.Label3.Text = "Game launcher Language:"
+        '
+        'cbx_playwow
+        '
+        Me.cbx_playwow.BackColor = System.Drawing.Color.Black
+        Me.cbx_playwow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbx_playwow.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.cbx_playwow.ForeColor = System.Drawing.Color.White
+        Me.cbx_playwow.FormattingEnabled = True
+        Me.cbx_playwow.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.cbx_playwow.IntegralHeight = False
+        Me.cbx_playwow.Items.AddRange(New Object() {"Hide Game launcher", "Close Game launcher", "Do Nothing"})
+        Me.cbx_playwow.Location = New System.Drawing.Point(144, 101)
+        Me.cbx_playwow.Name = "cbx_playwow"
+        Me.cbx_playwow.Size = New System.Drawing.Size(172, 21)
+        Me.cbx_playwow.TabIndex = 24
+        Me.cbx_playwow.TabStop = False
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Black
+        Me.Label4.ForeColor = System.Drawing.Color.White
+        Me.Label4.Location = New System.Drawing.Point(7, 105)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(139, 13)
+        Me.Label4.TabIndex = 23
+        Me.Label4.Text = "When play world of warcraft"
         '
         'frm_options
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.wow_launcher.My.Resources.Resources.hunterbeastmastery
-        Me.ClientSize = New System.Drawing.Size(324, 161)
+        Me.ClientSize = New System.Drawing.Size(324, 219)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.cbx_playwow)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.cbx_gllang)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.cbx_gamelang)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btn_seldir)
         Me.Controls.Add(Me.txt_gamedir)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btn_apply)
         Me.Controls.Add(Me.btn_cancel)
         Me.Controls.Add(Me.btn_acept)
@@ -230,4 +292,8 @@ Partial Class frm_options
     Friend WithEvents cbx_gamelang As System.Windows.Forms.ComboBox
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents cbx_gllang As System.Windows.Forms.ComboBox
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents cbx_playwow As System.Windows.Forms.ComboBox
+    Friend WithEvents Label4 As System.Windows.Forms.Label
 End Class

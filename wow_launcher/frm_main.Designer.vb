@@ -57,7 +57,7 @@ Partial Class frm_main
         Me.RectangleShape1 = New Microsoft.VisualBasic.PowerPacks.RectangleShape()
         Me.lbl_wowdir = New System.Windows.Forms.Label()
         Me.lbl_lang = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.lbl_latency = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Label4 = New System.Windows.Forms.Label()
         Me.list_servers = New System.Windows.Forms.ListView()
@@ -76,6 +76,9 @@ Partial Class frm_main
         Me.btn_server_add = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.pic_armory, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pic_forum, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -170,7 +173,7 @@ Partial Class frm_main
         Me.lbl_wowdir.Name = "lbl_wowdir"
         Me.lbl_wowdir.Size = New System.Drawing.Size(280, 16)
         Me.lbl_wowdir.TabIndex = 3
-        Me.lbl_wowdir.Text = "Game Dir: (No dir selected)"
+        Me.lbl_wowdir.Text = "Game Dir:"
         '
         'lbl_lang
         '
@@ -183,16 +186,16 @@ Partial Class frm_main
         Me.lbl_lang.TabIndex = 4
         Me.lbl_lang.Text = "Language: (English-Great Britain)"
         '
-        'Label3
+        'lbl_latency
         '
-        Me.Label3.BackColor = System.Drawing.Color.Black
-        Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.Label3.Location = New System.Drawing.Point(554, 381)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(128, 16)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "Latency:  0000ms"
+        Me.lbl_latency.BackColor = System.Drawing.Color.Black
+        Me.lbl_latency.ForeColor = System.Drawing.Color.White
+        Me.lbl_latency.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.lbl_latency.Location = New System.Drawing.Point(554, 381)
+        Me.lbl_latency.Name = "lbl_latency"
+        Me.lbl_latency.Size = New System.Drawing.Size(128, 16)
+        Me.lbl_latency.TabIndex = 5
+        Me.lbl_latency.Text = "Latency:  0000ms"
         '
         'Timer1
         '
@@ -350,7 +353,7 @@ Partial Class frm_main
         Me.btn_playwow.Location = New System.Drawing.Point(484, 311)
         Me.btn_playwow.Name = "btn_playwow"
         Me.btn_playwow.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.btn_playwow.Size = New System.Drawing.Size(198, 60)
+        Me.btn_playwow.Size = New System.Drawing.Size(198, 62)
         Me.btn_playwow.TabIndex = 11
         Me.btn_playwow.TabStop = False
         Me.btn_playwow.Text = "Play World of Warcraft"
@@ -446,6 +449,42 @@ Partial Class frm_main
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
+        'Label1
+        '
+        Me.Label1.BackColor = System.Drawing.Color.Black
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.Label1.Location = New System.Drawing.Point(322, 329)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(112, 17)
+        Me.Label1.TabIndex = 17
+        Me.Label1.Text = "game dir language"
+        Me.Label1.Visible = False
+        '
+        'Label2
+        '
+        Me.Label2.BackColor = System.Drawing.Color.Black
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.Label2.Location = New System.Drawing.Point(322, 311)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(112, 17)
+        Me.Label2.TabIndex = 18
+        Me.Label2.Text = "game lang language"
+        Me.Label2.Visible = False
+        '
+        'Label3
+        '
+        Me.Label3.BackColor = System.Drawing.Color.Black
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.Label3.Location = New System.Drawing.Point(322, 346)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(112, 17)
+        Me.Label3.TabIndex = 19
+        Me.Label3.Text = "Latency language"
+        Me.Label3.Visible = False
+        '
         'frm_main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -453,6 +492,9 @@ Partial Class frm_main
         Me.BackColor = System.Drawing.Color.SaddleBrown
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(761, 405)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.pic_armory)
         Me.Controls.Add(Me.pic_forum)
         Me.Controls.Add(Me.pic_web)
@@ -464,7 +506,7 @@ Partial Class frm_main
         Me.Controls.Add(Me.btn_server_add)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.list_servers)
-        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.lbl_latency)
         Me.Controls.Add(Me.lbl_lang)
         Me.Controls.Add(Me.lbl_wowdir)
         Me.Controls.Add(Me.PictureBox2)
@@ -541,16 +583,16 @@ Partial Class frm_main
     End Sub
     Friend WithEvents lbl_wowdir As System.Windows.Forms.Label
     Friend WithEvents lbl_lang As System.Windows.Forms.Label
-    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents lbl_latency As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         'ping settings
         res = eco.Send(selser)
-        Label3.Text = "Latency: " & res.RoundtripTime & "ms"
+        lbl_latency.Text = Label3.Text & res.RoundtripTime & "ms"
         If res.RoundtripTime = 0 Then
             Timer1.Enabled = False
-            Label3.Text = "Latency: No Response"
+            lbl_latency.Text = Label3.Text & "No Response"
         End If
     End Sub
     Friend WithEvents list_servers As System.Windows.Forms.ListView
@@ -592,6 +634,9 @@ Partial Class frm_main
     End Sub 'Form_Closing
 
     Private Sub frm_main_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        mod_lang.addlang_es()
+        mod_lang.mainlang_es()
+        mod_lang.optionslang_es()
         form_visible = True
         read_data()
         read_config()
@@ -695,11 +740,18 @@ Partial Class frm_main
     End Sub
 
     Public Function read_config()
+        Dim gllang As String
+        gllang = GetSetting(My.Application.Info.ProductName, "realms", "gllang", "English")
+        If gllang = "English" Then
+            mod_lang.mainlang_en()
+        ElseIf gllang = "Español" Then
+            mod_lang.mainlang_es()
+        End If
         selser = GetSetting(My.Application.Info.ProductName, "realms", "selectedrealm", "logon.molten-wow.com")
         gamedir = GetSetting(My.Application.Info.ProductName, "realms", "gamedir", "(No dir selected)")
         gamelang = GetSetting(My.Application.Info.ProductName, "realms", "gamelang", "(No language selected)")
-        lbl_wowdir.Text = "Game Dir: " & gamedir
-        lbl_lang.Text = "Language: " & gamelang
+        lbl_wowdir.Text = Label2.Text & gamedir
+        lbl_lang.Text = Label1.Text & gamelang
         If gamedir = "(No dir selected)" Then
             btn_playwow.Enabled = False
         Else
@@ -855,4 +907,7 @@ Partial Class frm_main
         'return the armory picture
         pic_armory.Image = My.Resources.Resources.btn_armory
     End Sub
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
 End Class

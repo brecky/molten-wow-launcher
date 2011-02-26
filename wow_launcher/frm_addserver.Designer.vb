@@ -166,9 +166,9 @@ Partial Class frm_addserver
         Me.btn_cancel.ForeColor = System.Drawing.Color.White
         Me.btn_cancel.Image = Global.wow_launcher.My.Resources.Resources.remove
         Me.btn_cancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_cancel.Location = New System.Drawing.Point(187, 172)
+        Me.btn_cancel.Location = New System.Drawing.Point(179, 172)
         Me.btn_cancel.Name = "btn_cancel"
-        Me.btn_cancel.Size = New System.Drawing.Size(77, 32)
+        Me.btn_cancel.Size = New System.Drawing.Size(85, 32)
         Me.btn_cancel.TabIndex = 10
         Me.btn_cancel.TabStop = False
         Me.btn_cancel.Text = "Cancel"

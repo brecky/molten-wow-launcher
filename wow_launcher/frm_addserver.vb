@@ -46,6 +46,12 @@
 
 
     Private Sub frm_addserver_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
+        Dim gllang As String
+        gllang = GetSetting(My.Application.Info.ProductName, "realms", "gllang", "English")
+        If gllang = "English" Then
+            mod_lang.addlang_en()
+        ElseIf gllang = "Español" Then
+            mod_lang.addlang_es()
+        End If
     End Sub
 End Class
