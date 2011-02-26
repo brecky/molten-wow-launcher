@@ -53,10 +53,36 @@
         frm_options.btn_apply.Text = "Apply Changes"
         frm_options.btn_cancel.Text = "Cancel"
         frm_options.btn_seldir.Text = "Select Dir."
+        'combobox items
+        'game client lang
+        frm_options.cbx_gamelang.Items.Clear()
+        frm_options.cbx_gamelang.Items.Add("English (United States)")
+        frm_options.cbx_gamelang.Items.Add("English (Great Britain)")
+        frm_options.cbx_gamelang.Items.Add("German")
+        frm_options.cbx_gamelang.Items.Add("French")
+        frm_options.cbx_gamelang.Items.Add("Spanish(Spain)")
+        frm_options.cbx_gamelang.Items.Add("Spanish(Mexico)")
+        frm_options.cbx_gamelang.Items.Add("Russian")
+        'game launcher lang
+        frm_options.cbx_gllang.Items.Clear()
+        frm_options.cbx_gllang.Items.Add("English")
+        frm_options.cbx_gllang.Items.Add("Spanish")
+        'playing wow options lang
+        frm_options.cbx_playwow.Items.Clear()
+        frm_options.cbx_playwow.Items.Add("Hide Game launcher")
+        frm_options.cbx_playwow.Items.Add("Close Game launcher")
+        frm_options.cbx_playwow.Items.Add("Do Nothing")
         Return (0)
     End Function
     'end english languaje
-    '-------------------------------------------------------------------------------------------------------
+    '
+    '==================================================================================================================
+    '
+    '
+    '
+    '
+    '==================================================================================================================
+    '
     'spanish language
     Public Function mainlang_es()
         'main form language
@@ -111,7 +137,26 @@
         frm_options.btn_apply.Text = "Aplicar Cambios"
         frm_options.btn_cancel.Text = "Cancelar"
         frm_options.btn_seldir.Text = "Seleccioar Dir."
+        'combobox items
+        'game client lang
+        frm_options.cbx_gamelang.Items.Clear()
+        frm_options.cbx_gamelang.Items.Add("Inglés (Estados Unidos)")
+        frm_options.cbx_gamelang.Items.Add("Inglés (Inglaterra)")
+        frm_options.cbx_gamelang.Items.Add("Alemán")
+        frm_options.cbx_gamelang.Items.Add("Frances")
+        frm_options.cbx_gamelang.Items.Add("Español(España)")
+        frm_options.cbx_gamelang.Items.Add("Español(Mexico)")
+        frm_options.cbx_gamelang.Items.Add("Ruso")
+        'game launcher lang
+        frm_options.cbx_gllang.Items.Clear()
+        frm_options.cbx_gllang.Items.Add("Inglés")
+        frm_options.cbx_gllang.Items.Add("Español")
+        'playing wow options lang
+        frm_options.cbx_playwow.Items.Clear()
+        frm_options.cbx_playwow.Items.Add("Esconder en barra de tareas")
+        frm_options.cbx_playwow.Items.Add("Cerrar el programa")
+        frm_options.cbx_playwow.Items.Add("No hacer nada")
         Return (0)
     End Function
-    'end english languaje
+    'end spanish languaje
 End Module

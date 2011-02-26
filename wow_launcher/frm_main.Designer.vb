@@ -11,7 +11,7 @@ Partial Class frm_main
     Dim ip As IPAddress
     Dim selser As String
 
-    Dim listaindice As Integer, gamedir As String, gamelang As String, langdir As String
+    Dim listaindice As Integer, gamedir As String, gamelang As String, langdir As String, gamelangtxt As String
 
     Dim form_visible As Boolean
 
@@ -741,37 +741,38 @@ Partial Class frm_main
 
     Public Function read_config()
         Dim gllang As String
-        gllang = GetSetting(My.Application.Info.ProductName, "realms", "gllang", "English")
-        If gllang = "English" Then
+        gllang = GetSetting(My.Application.Info.ProductName, "realms", "gllang", "0")
+        If gllang = "0" Then
             mod_lang.mainlang_en()
-        ElseIf gllang = "Español" Then
+        ElseIf gllang = "1" Then
             mod_lang.mainlang_es()
         End If
         selser = GetSetting(My.Application.Info.ProductName, "realms", "selectedrealm", "logon.molten-wow.com")
         gamedir = GetSetting(My.Application.Info.ProductName, "realms", "gamedir", "(No dir selected)")
-        gamelang = GetSetting(My.Application.Info.ProductName, "realms", "gamelang", "(No language selected)")
+        gamelang = GetSetting(My.Application.Info.ProductName, "realms", "gamelang", "0")
+        gamelangtxt = GetSetting(My.Application.Info.ProductName, "realms", "gamelangtxt", "0")
         lbl_wowdir.Text = Label2.Text & gamedir
-        lbl_lang.Text = Label1.Text & gamelang
+        lbl_lang.Text = Label1.Text & gamelangtxt
         If gamedir = "(No dir selected)" Then
             btn_playwow.Enabled = False
         Else
             btn_playwow.Enabled = True
         End If
-        If gamelang <> "(No language selected)" Then
+        If gamelang <> "0" Then
             'check the game language for game data
-            If gamelang = "English (United States)" Then
+            If gamelang = "0" Then
                 langdir = "enUS"
-            ElseIf gamelang = "English (Great Britain)" Then
+            ElseIf gamelang = "1" Then
                 langdir = "enGB"
-            ElseIf gamelang = "German" Then
+            ElseIf gamelang = "2" Then
                 langdir = "deDE"
-            ElseIf gamelang = "French" Then
+            ElseIf gamelang = "3" Then
                 langdir = "frFR"
-            ElseIf gamelang = "Spanish (Spain)" Then
+            ElseIf gamelang = "4" Then
                 langdir = "esES"
-            ElseIf gamelang = "Spanish (Mexico)" Then
+            ElseIf gamelang = "5" Then
                 langdir = "esMX"
-            ElseIf gamelang = "Russian" Then
+            ElseIf gamelang = "6" Then
                 langdir = "ruRU"
             End If
             'end check

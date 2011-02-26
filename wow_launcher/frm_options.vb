@@ -15,18 +15,18 @@ Public Class frm_options
 
     Private Sub frm_options_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'get the settings from windows reg
-        FolderBrowserDialog1.Description = "Select the Main World of Warcraft Folder where 'wow.exe' is located"
-        txt_gamedir.Text = GetSetting(My.Application.Info.ProductName, "realms", "gamedir", "(No dir selected)")
-        cbx_gamelang.SelectedItem = GetSetting(My.Application.Info.ProductName, "realms", "gamelang", "English United States")
-        cbx_gllang.SelectedItem = GetSetting(My.Application.Info.ProductName, "realms", "gllang", "English")
-        cbx_playwow.SelectedItem = GetSetting(My.Application.Info.ProductName, "realms", "playwow", "Hide Game launcher")
         Dim gllang As String
         gllang = GetSetting(My.Application.Info.ProductName, "realms", "gllang", "English")
-        If gllang = "English" Then
+        If gllang = "0" Then
             mod_lang.optionslang_en()
-        ElseIf gllang = "Español" Then
+        ElseIf gllang = "1" Then
             mod_lang.optionslang_es()
         End If
+        FolderBrowserDialog1.Description = "Select the Main World of Warcraft Folder where 'wow.exe' is located"
+        txt_gamedir.Text = GetSetting(My.Application.Info.ProductName, "realms", "gamedir", "(No dir selected)")
+        cbx_gamelang.SelectedIndex = GetSetting(My.Application.Info.ProductName, "realms", "gamelang", "0")
+        cbx_gllang.SelectedIndex = GetSetting(My.Application.Info.ProductName, "realms", "gllang", "0")
+        cbx_playwow.SelectedIndex = GetSetting(My.Application.Info.ProductName, "realms", "playwow", "0")
     End Sub
 
     Private Sub btn_acept_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_acept.Click
@@ -75,10 +75,13 @@ Public Class frm_options
         btn_cancel.Enabled = False
         btn_apply.Enabled = False
         SaveSetting(My.Application.Info.ProductName, "realms", "gamedir", txt_gamedir.Text)
-        SaveSetting(My.Application.Info.ProductName, "realms", "gllang", cbx_gllang.SelectedItem)
-        SaveSetting(My.Application.Info.ProductName, "realms", "playwow", cbx_playwow.SelectedItem)
+        SaveSetting(My.Application.Info.ProductName, "realms", "gllang", cbx_gllang.SelectedIndex)
+        SaveSetting(My.Application.Info.ProductName, "realms", "playwow", cbx_playwow.SelectedIndex)
+        SaveSetting(My.Application.Info.ProductName, "realms", "gllangtxt", cbx_gllang.SelectedItem)
+        SaveSetting(My.Application.Info.ProductName, "realms", "playwowtxt", cbx_playwow.SelectedItem)
         If cbx_gamelang.SelectedItem <> "" Then
-            SaveSetting(My.Application.Info.ProductName, "realms", "gamelang", cbx_gamelang.SelectedItem)
+            SaveSetting(My.Application.Info.ProductName, "realms", "gamelang", cbx_gamelang.SelectedIndex)
+            SaveSetting(My.Application.Info.ProductName, "realms", "gamelangtxt", cbx_gamelang.SelectedItem)
         End If
         frm_main.read_config()
         Return 0
@@ -88,4 +91,5 @@ Public Class frm_options
         btn_cancel.Enabled = True
         btn_apply.Enabled = True
     End Sub
+
 End Class
