@@ -4,7 +4,7 @@
         'main form language
         frm_main.Text = "Molten wow Game Launcher"
         'main label
-        frm_main.Label4.Text = "Chose the server from the list and click connect..."
+        frm_main.Label4.Text = "Chose the server from the list and click play world of warcraft..."
         'list servers
         frm_main.list_servers.Columns(0).Text = "Server"
         frm_main.list_servers.Columns(1).Text = "Location"
@@ -94,7 +94,7 @@
         'main form language
         frm_main.Text = "Molten Wow - Lanzador de Juego"
         'main label
-        frm_main.Label4.Text = "Selecciona el servidor de la lista, y cliquea conectar."
+        frm_main.Label4.Text = "Selecciona el servidor de la lista, y cliquea Jugar World of warcraf."
         'list servers
         frm_main.list_servers.Columns(0).Text = "Servidor"
         frm_main.list_servers.Columns(1).Text = "Ubicacion"

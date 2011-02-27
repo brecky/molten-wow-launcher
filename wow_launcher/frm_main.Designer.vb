@@ -676,9 +676,7 @@ Partial Class frm_main
     End Sub 'Form_Closing
 
     Private Sub frm_main_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        mod_lang.addlang_es()
-        mod_lang.mainlang_es()
-        mod_lang.optionslang_es()
+
         form_visible = True
         read_data()
         read_config()
@@ -782,13 +780,17 @@ Partial Class frm_main
     End Sub
 
     Public Function read_config()
+        'read the current language for the settings, if is the first time, load english lang.
         Dim gllang As String
         gllang = GetSetting(My.Application.Info.ProductName, "realms", "gllang", "0")
+        '0 = english
+        '1 = spanish
         If gllang = "0" Then
             mod_lang.mainlang_en()
         ElseIf gllang = "1" Then
             mod_lang.mainlang_es()
         End If
+        'get global settings
         selser = GetSetting(My.Application.Info.ProductName, "realms", "selectedrealm", "logon.molten-wow.com")
         gamedir = GetSetting(My.Application.Info.ProductName, "realms", "gamedir", "(No dir selected)")
         gamelang = GetSetting(My.Application.Info.ProductName, "realms", "gamelang", "0")
@@ -800,6 +802,7 @@ Partial Class frm_main
         Else
             btn_playwow.Enabled = True
         End If
+        'set the game client language to set the realmlist into wowdir\DATA\language\realmlist.wtf
         If gamelang <> "0" Then
             'check the game language for game data
             If gamelang = "0" Then
@@ -828,11 +831,12 @@ Partial Class frm_main
 
     Private Sub btn_clearcache_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_clearcache.Click
         Try
+            'set the cache dir
             Dim midirectorio As String = gamedir & "cache\wdb"
             If gamedir = "(No dir selected)" Then
                 MsgBox(Label5.Text, 16, btn_clearcache.Text)
             Else
-                'check if file wow.exe exist into the selected folder, if exist save the changes, if is not exist then send a msgbox
+                'check if cache files exist.
                 Dim cachedir As String
                 cachedir = gamedir & "CACHE\WDB"
                 If System.IO.Directory.Exists(cachedir) = True Then
@@ -842,7 +846,6 @@ Partial Class frm_main
                     MsgBox(Label6.Text, 48, btn_clearcache.Text)
                 End If
             End If
-
         Catch ex As Exception
             MsgBox(ex.Message.ToString, MsgBoxStyle.Critical)
         End Try
