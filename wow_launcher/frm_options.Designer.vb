@@ -39,6 +39,8 @@ Partial Class frm_options
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cbx_playwow = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -250,12 +252,38 @@ Partial Class frm_options
         Me.Label4.TabIndex = 23
         Me.Label4.Text = "When play world of warcraft"
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Black
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.Location = New System.Drawing.Point(114, 5)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(89, 13)
+        Me.Label5.TabIndex = 25
+        Me.Label5.Text = "msg sel Game Dir"
+        Me.Label5.Visible = False
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.Color.Black
+        Me.Label7.ForeColor = System.Drawing.Color.White
+        Me.Label7.Location = New System.Drawing.Point(210, 5)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(73, 13)
+        Me.Label7.TabIndex = 26
+        Me.Label7.Text = "msg Game Dir"
+        Me.Label7.Visible = False
+        '
         'frm_options
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.wow_launcher.My.Resources.Resources.hunterbeastmastery
         Me.ClientSize = New System.Drawing.Size(324, 219)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.cbx_playwow)
         Me.Controls.Add(Me.Label4)
@@ -296,4 +324,6 @@ Partial Class frm_options
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents cbx_playwow As System.Windows.Forms.ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Label7 As System.Windows.Forms.Label
 End Class

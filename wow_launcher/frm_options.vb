@@ -22,7 +22,6 @@ Public Class frm_options
         ElseIf gllang = "1" Then
             mod_lang.optionslang_es()
         End If
-        FolderBrowserDialog1.Description = "Select the Main World of Warcraft Folder where 'wow.exe' is located"
         txt_gamedir.Text = GetSetting(My.Application.Info.ProductName, "realms", "gamedir", "(No dir selected)")
         cbx_gamelang.SelectedIndex = GetSetting(My.Application.Info.ProductName, "realms", "gamelang", "0")
         cbx_gllang.SelectedIndex = GetSetting(My.Application.Info.ProductName, "realms", "gllang", "0")
@@ -45,7 +44,7 @@ Public Class frm_options
         Dim wow As String
         wow = txt_gamedir.Text & "wow.exe"
         If System.IO.File.Exists(wow) = False Then
-            MsgBox("The Selected folder '" & txt_gamedir.Text & "' does not have world of warcraft installed" & vbCrLf & "Please select a validate path.", 64, "Wow Path")
+            MsgBox(Label5.Text & txt_gamedir.Text & Label7.Text, 64, "Wow Path")
             seldir()
         Else
             btn_cancel.Enabled = True

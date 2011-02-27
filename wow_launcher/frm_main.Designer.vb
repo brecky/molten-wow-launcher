@@ -79,6 +79,9 @@ Partial Class frm_main
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.pic_armory, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pic_forum, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -373,9 +376,9 @@ Partial Class frm_main
         Me.btn_clearcache.ForeColor = System.Drawing.Color.White
         Me.btn_clearcache.Image = Global.wow_launcher.My.Resources.Resources.clear
         Me.btn_clearcache.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.btn_clearcache.Location = New System.Drawing.Point(587, 278)
+        Me.btn_clearcache.Location = New System.Drawing.Point(585, 278)
         Me.btn_clearcache.Name = "btn_clearcache"
-        Me.btn_clearcache.Size = New System.Drawing.Size(95, 27)
+        Me.btn_clearcache.Size = New System.Drawing.Size(96, 27)
         Me.btn_clearcache.TabIndex = 10
         Me.btn_clearcache.TabStop = False
         Me.btn_clearcache.Text = "Clear Cache"
@@ -485,6 +488,42 @@ Partial Class frm_main
         Me.Label3.Text = "Latency language"
         Me.Label3.Visible = False
         '
+        'Label5
+        '
+        Me.Label5.BackColor = System.Drawing.Color.Black
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.Label5.Location = New System.Drawing.Point(194, 312)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(112, 17)
+        Me.Label5.TabIndex = 22
+        Me.Label5.Text = "msg no dir"
+        Me.Label5.Visible = False
+        '
+        'Label6
+        '
+        Me.Label6.BackColor = System.Drawing.Color.Black
+        Me.Label6.ForeColor = System.Drawing.Color.White
+        Me.Label6.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.Label6.Location = New System.Drawing.Point(194, 346)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(112, 17)
+        Me.Label6.TabIndex = 21
+        Me.Label6.Text = "msg clear cache"
+        Me.Label6.Visible = False
+        '
+        'Label7
+        '
+        Me.Label7.BackColor = System.Drawing.Color.Black
+        Me.Label7.ForeColor = System.Drawing.Color.White
+        Me.Label7.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.Label7.Location = New System.Drawing.Point(194, 329)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(112, 17)
+        Me.Label7.TabIndex = 20
+        Me.Label7.Text = "msg no clear cache"
+        Me.Label7.Visible = False
+        '
         'frm_main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -492,6 +531,9 @@ Partial Class frm_main
         Me.BackColor = System.Drawing.Color.SaddleBrown
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(761, 405)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -788,16 +830,16 @@ Partial Class frm_main
         Try
             Dim midirectorio As String = gamedir & "cache\wdb"
             If gamedir = "(No dir selected)" Then
-                MsgBox("The game's path is invalid. Please check your game directory and try again", 16, "Clear Cache")
+                MsgBox(Label5.Text, 16, btn_clearcache.Text)
             Else
                 'check if file wow.exe exist into the selected folder, if exist save the changes, if is not exist then send a msgbox
                 Dim cachedir As String
                 cachedir = gamedir & "CACHE\WDB"
                 If System.IO.Directory.Exists(cachedir) = True Then
                     My.Computer.FileSystem.DeleteDirectory(midirectorio, FileIO.UIOption.OnlyErrorDialogs, FileIO.RecycleOption.DeletePermanently, FileIO.UICancelOption.DoNothing)
-                    MsgBox("The GAME CACHE was deleted successfully", 64, "Clear Cache")
+                    MsgBox(Label7.Text, 64, btn_clearcache.Text)
                 Else
-                    MsgBox("The GAME CACHE was not deleted." & vbCrLf & "Check the files aren't in read only mode or exist.", 48, "Clear Cache")
+                    MsgBox(Label6.Text, 48, btn_clearcache.Text)
                 End If
             End If
 
@@ -911,4 +953,7 @@ Partial Class frm_main
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Label7 As System.Windows.Forms.Label
 End Class

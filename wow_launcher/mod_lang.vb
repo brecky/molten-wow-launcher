@@ -21,7 +21,10 @@
         frm_main.Label1.Text = "Language: "
         frm_main.Label2.Text = "Game Dir: "
         frm_main.Label3.Text = "Latency: "
-        'add server form language
+        'cache messages texts
+        frm_main.Label5.Text = "The game's path is invalid. Please check your game directory and try again"
+        frm_main.Label6.Text = "The GAME CACHE was already deleted."
+        frm_main.Label7.Text = "The GAME CACHE was deleted successfully"
         Return (0)
     End Function
     Public Function addlang_en()
@@ -53,7 +56,10 @@
         frm_options.btn_apply.Text = "Apply Changes"
         frm_options.btn_cancel.Text = "Cancel"
         frm_options.btn_seldir.Text = "Select Dir."
-        'combobox items
+        'directory settings
+        frm_options.FolderBrowserDialog1.Description = "Select the Main World of Warcraft Folder where 'wow.exe' is located"
+        frm_options.Label5.Text = "The Selected folder '"
+        frm_options.Label7.Text = "' does not have world of warcraft installed" & vbCrLf & "Please select a validate path."
         'game client lang
         frm_options.cbx_gamelang.Items.Clear()
         frm_options.cbx_gamelang.Items.Add("English (United States)")
@@ -66,7 +72,7 @@
         'game launcher lang
         frm_options.cbx_gllang.Items.Clear()
         frm_options.cbx_gllang.Items.Add("English")
-        frm_options.cbx_gllang.Items.Add("Spanish")
+        frm_options.cbx_gllang.Items.Add("Español")
         'playing wow options lang
         frm_options.cbx_playwow.Items.Clear()
         frm_options.cbx_playwow.Items.Add("Hide Game launcher")
@@ -105,7 +111,10 @@
         frm_main.Label1.Text = "Idioma: "
         frm_main.Label2.Text = "Directorio: "
         frm_main.Label3.Text = "Latencia: "
-        'add server form language
+        'cache messages texts
+        frm_main.Label5.Text = "El directorio de juego es incorrecto, verifica la ubicacion e intentalo nuevamente."
+        frm_main.Label6.Text = "El CACHE del juego ya se ha eliminado"
+        frm_main.Label7.Text = "El CACHE del juego se limpió correctamente, los archivos fueron eliminados con éxito"
         Return (0)
     End Function
     Public Function addlang_es()
@@ -137,7 +146,10 @@
         frm_options.btn_apply.Text = "Aplicar Cambios"
         frm_options.btn_cancel.Text = "Cancelar"
         frm_options.btn_seldir.Text = "Seleccioar Dir."
-        'combobox items
+        'directory settings
+        frm_options.FolderBrowserDialog1.Description = "Selecciona la carpeta donde tienes instalado Word Of Warcraft"
+        frm_options.Label5.Text = "La carpeta seleccionada '"
+        frm_options.Label7.Text = "' no contiene world of warcraft instalado" & vbCrLf & "Por favor selecciona un directorio correcto"
         'game client lang
         frm_options.cbx_gamelang.Items.Clear()
         frm_options.cbx_gamelang.Items.Add("Inglés (Estados Unidos)")
@@ -149,7 +161,7 @@
         frm_options.cbx_gamelang.Items.Add("Ruso")
         'game launcher lang
         frm_options.cbx_gllang.Items.Clear()
-        frm_options.cbx_gllang.Items.Add("Inglés")
+        frm_options.cbx_gllang.Items.Add("English")
         frm_options.cbx_gllang.Items.Add("Español")
         'playing wow options lang
         frm_options.cbx_playwow.Items.Clear()
