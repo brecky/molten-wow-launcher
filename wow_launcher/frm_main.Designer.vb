@@ -867,13 +867,25 @@ Partial Class frm_main
     Friend WithEvents LineShape1 As Microsoft.VisualBasic.PowerPacks.LineShape
 
     Private Sub btn_playwow_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_playwow.Click
+        Dim playafter As Integer
+        '0=Hide Game launcher
+        '1=Close Game launcher
+        '2=Do Nothing
+        playafter = GetSetting(My.Application.Info.ProductName, "realms", "playwow", 0)
         'hide the main form and launch world of warcraft client
-        Me.Hide()
-        form_visible = False
-        ShowToolStripMenuItem.Visible = True
-        HideToolStripMenuItem.Visible = False
-        ToolStripSeparator1.Visible = False
-        Shell(gamedir & "wow.exe", AppWinStyle.NormalFocus)
+        If playafter = 0 Then
+            Me.Hide()
+            form_visible = False
+            ShowToolStripMenuItem.Visible = True
+            HideToolStripMenuItem.Visible = False
+            ToolStripSeparator1.Visible = False
+            Shell(gamedir & "wow.exe", AppWinStyle.NormalFocus)
+        ElseIf playafter = 1 Then
+            Me.Close()
+            Shell(gamedir & "wow.exe", AppWinStyle.NormalFocus)
+        ElseIf playafter = 2 Then
+            Shell(gamedir & "wow.exe", AppWinStyle.NormalFocus)
+        End If
     End Sub
 
     Private Sub notifymenu_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles notifymenu.DoubleClick
