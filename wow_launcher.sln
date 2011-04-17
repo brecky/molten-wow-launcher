@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "wow_launcher", "wow_launcher\wow_launcher.vbproj", "{4B57ADED-FE10-46D2-B5D9-ECFB1F4EB9E2}"
 EndProject
+Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "Setup", "Setup\Setup.isproj", "{ED4BFD01-4C9A-4B3B-A689-2C8211EE88D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		CD_ROM|x86 = CD_ROM|x86
@@ -22,6 +24,16 @@ Global
 		{4B57ADED-FE10-46D2-B5D9-ECFB1F4EB9E2}.Release|x86.Build.0 = Release|x86
 		{4B57ADED-FE10-46D2-B5D9-ECFB1F4EB9E2}.SingleImage|x86.ActiveCfg = Release|x86
 		{4B57ADED-FE10-46D2-B5D9-ECFB1F4EB9E2}.SingleImage|x86.Build.0 = Release|x86
+		{ED4BFD01-4C9A-4B3B-A689-2C8211EE88D3}.CD_ROM|x86.ActiveCfg = CD_ROM
+		{ED4BFD01-4C9A-4B3B-A689-2C8211EE88D3}.CD_ROM|x86.Build.0 = CD_ROM
+		{ED4BFD01-4C9A-4B3B-A689-2C8211EE88D3}.Debug|x86.ActiveCfg = DVD-5
+		{ED4BFD01-4C9A-4B3B-A689-2C8211EE88D3}.Debug|x86.Build.0 = DVD-5
+		{ED4BFD01-4C9A-4B3B-A689-2C8211EE88D3}.DVD-5|x86.ActiveCfg = DVD-5
+		{ED4BFD01-4C9A-4B3B-A689-2C8211EE88D3}.DVD-5|x86.Build.0 = DVD-5
+		{ED4BFD01-4C9A-4B3B-A689-2C8211EE88D3}.Release|x86.ActiveCfg = SingleImage
+		{ED4BFD01-4C9A-4B3B-A689-2C8211EE88D3}.Release|x86.Build.0 = SingleImage
+		{ED4BFD01-4C9A-4B3B-A689-2C8211EE88D3}.SingleImage|x86.ActiveCfg = SingleImage
+		{ED4BFD01-4C9A-4B3B-A689-2C8211EE88D3}.SingleImage|x86.Build.0 = SingleImage
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
