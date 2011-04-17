@@ -759,6 +759,7 @@ Partial Class frm_main
     End Function
 
     Private Sub btn_selserver_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_selserver.Click
+
         'select server to deffault, and save into realmlist.wtf
         Dim i As Integer, lista_contador As Integer, nombre As String
         nombre = My.Application.Info.ProductName
@@ -802,26 +803,23 @@ Partial Class frm_main
         Else
             btn_playwow.Enabled = True
         End If
-        'set the game client language to set the realmlist into wowdir\DATA\language\realmlist.wtf
-        If gamelang <> "0" Then
-            'check the game language for game data
-            If gamelang = "0" Then
-                langdir = "enUS"
-            ElseIf gamelang = "1" Then
-                langdir = "enGB"
-            ElseIf gamelang = "2" Then
-                langdir = "deDE"
-            ElseIf gamelang = "3" Then
-                langdir = "frFR"
-            ElseIf gamelang = "4" Then
-                langdir = "esES"
-            ElseIf gamelang = "5" Then
-                langdir = "esMX"
-            ElseIf gamelang = "6" Then
-                langdir = "ruRU"
-            End If
-            'end check
+        'check the game language for game data
+        If gamelang = "0" Then
+            langdir = "enUS"
+        ElseIf gamelang = "1" Then
+            langdir = "enGB"
+        ElseIf gamelang = "2" Then
+            langdir = "deDE"
+        ElseIf gamelang = "3" Then
+            langdir = "frFR"
+        ElseIf gamelang = "4" Then
+            langdir = "esES"
+        ElseIf gamelang = "5" Then
+            langdir = "esMX"
+        ElseIf gamelang = "6" Then
+            langdir = "ruRU"
         End If
+        'end check
         Return 0
     End Function
 
